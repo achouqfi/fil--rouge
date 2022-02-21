@@ -1,0 +1,26 @@
+import React, {useEffect, useRef} from 'react'
+import { NavigationContainer } from '@react-navigation/native';
+import {
+    StyleSheet,
+    View,
+    Text,
+    TouchableOpacity,
+    Animated,
+    SafeAreaView
+} from 'react-native';
+export default function ProgressTracker() {
+  return (
+    <View style={styles.container}>
+        <Text>hello ProgressTracker dash</Text>
+    </View>
+  )
+}
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        justifyContent:'center',
+        alignItems:'center',
+        backgroundColor:'white'
+    }
+});
