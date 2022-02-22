@@ -14,7 +14,7 @@ import Btnauth from '../../components/Auth/BtnAuth'
 
 export default function StartedHome({navigation}) {
   function GetStarted(){
-    navigation.push('Home');
+    navigation.push('Dashboard');
   }
   return (
     <SafeAreaView  style={styles.container}>

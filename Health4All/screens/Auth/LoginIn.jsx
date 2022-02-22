@@ -19,7 +19,7 @@ export default function LoginIn({navigation}) {
     }
 
     function HomePage(){
-      navigation.push('Home');
+      navigation.push('Dashboard');
     }
 
     return (
