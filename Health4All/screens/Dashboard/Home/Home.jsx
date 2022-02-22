@@ -8,19 +8,19 @@ import {
     Animated,
     SafeAreaView
 } from 'react-native';
+import Header from '../../../components/Dashboard/Home/Header'
 export default function Home() {
   return (
-    <View style={styles.container}>
-        <Text>hello home dash</Text>
-    </View>
+    <SafeAreaView style={styles.container}>
+        <Header />
+    </SafeAreaView>
   )
 }
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        justifyContent:'center',
-        alignItems:'center',
-        backgroundColor:'white'
+      flex:1,
+      marginTop:10,
+      backgroundColor:'white'
     }
 });
