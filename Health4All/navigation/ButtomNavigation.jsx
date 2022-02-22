@@ -6,7 +6,6 @@ import Search from '../screens/Dashboard/Search/Search'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Svg, { Path,Circle } from "react-native-svg"
 import { LinearGradient } from 'expo-linear-gradient';
-
 import HomeIcon from '../assets/icons/Home.svg'
 import {
     StyleSheet,
