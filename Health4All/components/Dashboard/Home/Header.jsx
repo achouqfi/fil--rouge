@@ -33,7 +33,6 @@ export default function Header() {
   )
 }
 
-
 const styles = StyleSheet.create({
     container: {
       flex: 0.1,
@@ -43,13 +42,13 @@ const styles = StyleSheet.create({
       marginHorizontal:25
     },
     notification:{
-      // backgroundColor:'black',
       height:40,
       width:40,
       borderWidth:1,
       borderColor:'#F9F6F6',
       padding:6,
-      borderRadius:10
+      borderRadius:10,
+      marginTop:10
     },
     title1:{
       fontSize:15,
