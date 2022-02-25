@@ -18,10 +18,13 @@ import WaterIntake from '../../../components/Dashboard/Home/WaterIntake'
 import Sleep from '../../../components/Dashboard/Home/Sleep'
 import Calories from '../../../components/Dashboard/Home/Calories'
 
-export default function Home() {
+export default function Home({navigation}) {
+  function Notification(){
+      navigation.push('Notification');
+  }
   return (
     <ScrollView style={styles.container}>
-        <Header />
+        <Header to={Notification} />
         <StatHeaderHome />
         <View style={styles.todayTarget}>
           <Text style={styles.HomeTargerDay}>Today Target</Text>
@@ -29,7 +32,7 @@ export default function Home() {
             <BtnHome btnTitle={"Check"} color1={"#92A3FD"} color2={'#9DCEFF'} />
           </View>
         </View>
-        <View style={styles.ActivityStatus}>
+        <View>
           <Text style={styles.ActivityStatusTitle}>Activity Status</Text>
           <View style={styles.ActivityStatus2}>
             <View style={styles.HeartRatWaterIntakee}>
@@ -44,6 +47,10 @@ export default function Home() {
               </View>
             </View>
           </View>
+        </View>
+        <View>
+          <Text style={styles.ActivityStatusTitle}>Workout Progress</Text>
+
         </View>
     </ScrollView>
   )
@@ -104,7 +111,7 @@ const styles = StyleSheet.create({
       flexDirection:'row',
       marginTop:15,
       marginHorizontal:24,
-      marginBottom:30
+      marginBottom:10
     },
     SleepCalories:{
       backgroundColor:'white',

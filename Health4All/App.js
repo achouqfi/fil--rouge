@@ -9,6 +9,7 @@ import CreateAccount from './screens/Auth/AccountCreation'
 import LoginIn from './screens/Auth/LoginIn'
 import CreateAccount1 from './screens/Auth/AccountCreation1'
 import StartedHome from './screens/Auth/StartedHome'
+import Notification from './screens/Dashboard/Notification/Notification'
 import Buttomnavigation from './navigation/ButtomNavigation';
 
 
@@ -30,6 +31,7 @@ export default function App() {
     <NavigationContainer>
         <Stack.Navigator>
           <Stack.Screen name="Onboarding" component={Onboarding} options={{ headerShown :false }}  />
+          <Stack.Screen name="Notification" component={Notification} options={{ headerShown :true }}  />
           <Stack.Screen name="CreateAccount" component={CreateAccount} options={{ headerShown :false }}  />
           <Stack.Screen name="LoginIn" component={LoginIn} options={{ headerShown :false }}  />
           <Stack.Screen name="CreateAccount1" component={CreateAccount1} options={{ headerShown :false }}  />

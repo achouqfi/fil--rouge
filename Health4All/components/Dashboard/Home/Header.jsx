@@ -9,14 +9,15 @@ import {
 } from 'react-native';
 import Svg, { Path,Circle, Mask, G } from "react-native-svg"
 
-export default function Header() {
+export default function Header({to}) {
+
   return (
     <SafeAreaView  style={styles.container}>
         <View>
           <Text style={styles.title1} >Welcome Back,</Text>
           <Text style={styles.title2} >Stefani Wong</Text>
         </View>
-        <View style={styles.notification}>
+        <TouchableOpacity onPress={to} style={styles.notification}>
           <Svg width="25" height="25" viewBox="0 0 18 18" fill="white" xmlns="http://www.w3.org/2000/svg">
               <Mask id="mask0_414_4917" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="2" y="0" width="15" height="14">
               <Path fill-rule="evenodd" clip-rule="evenodd" d="M2.25 0.75H16.1227V13.761H2.25V0.75Z" fill="white"/>
@@ -28,7 +29,7 @@ export default function Header() {
               <Circle cx="12.5" cy="2.5" r="2.5" fill="#F7F8F8"/>
               <Circle cx="12.5" cy="2.5" r="1.5" fill="#FF0000"/>
           </Svg>
-        </View>
+        </TouchableOpacity>
     </SafeAreaView>
   )
 }

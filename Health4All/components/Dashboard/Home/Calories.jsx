@@ -11,25 +11,36 @@ import {
 import HeaderStat from './HeaderStat'
 import { LinearGradient } from 'expo-linear-gradient';
 import {
-    LineChart,
-    BarChart,
-    PieChart,
-    ProgressChart,
-    ContributionGraph,
-    StackedBarChart
-  } from "react-native-chart-kit";
-
-
-  const data = {
-    labels: ["Swim", "Bike", "Run"], // optional
-    data: [0.4, 0.6, 0.8]
-  };
+  LineChart,
+  BarChart,
+  PieChart,
+  ProgressChart,
+  ContributionGraph,
+  StackedBarChart,
+} from 'react-native-chart-kit';
 
 const Calories = () => {
     return (
         <View style={styles.container}>
             <View>
                 <HeaderStat title1={'Calories'} titleDesc={"760 kCal"} />
+                <View style={styles.ChartContainer}> 
+                    <View style={styles.borderCalories}>
+                      <LinearGradient
+                        colors={[ "#92A3FD","#9DCEFF"]}
+                        start={{ x: 0.5, y: 0.5 }}
+                        end={{ x: 1, y: 1 }}
+                        style={{ 
+                          height:60,
+                          width:60,
+                          borderRadius:80,
+                          margin:2
+                        }}
+                      >
+                        <Text style={styles.CaloriesLeft}>230kCal left</Text>
+                      </LinearGradient>
+                    </View>
+                </View>
             </View>
         </View>
     );
@@ -47,6 +58,26 @@ const styles = StyleSheet.create({
       height:280,
       width:20,
       borderRadius:20
+    },
+    ChartContainer:{
+      marginLeft:25,
+      height:75,
+      backgroundColor:"#DDDADA",
+      width:75,
+      borderRadius:70,
+      marginTop:5
+    },
+    CaloriesLeft:{
+      textAlign:'center',
+      alignItems:'center',
+      marginTop:'25%',
+      color:'white',
+      fontSize:12
+    },
+    borderCalories:{
+      borderWidth:6,
+      borderColor:'#93A8FD',
+      borderRadius:80
     }
   });
   
