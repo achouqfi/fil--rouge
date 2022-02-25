@@ -9,7 +9,6 @@ import {
 import Svg, {G, Circle} from 'react-native-svg';
 import { AntDesign } from '@expo/vector-icons'
 
-
 export default function NextBtn({percentage,scrollTo}) {
   const size = 80;
   const strokeWidth = 2;

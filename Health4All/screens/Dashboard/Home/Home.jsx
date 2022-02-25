@@ -8,12 +8,15 @@ import {
     Animated,
     SafeAreaView,
     ScrollView,
-    StatusBar 
+    StatusBar,
+    Dimensions
 } from 'react-native';
 import StatHeaderHome from '../../../components/Dashboard/Home/ChartHeaderHome'
 import Header from '../../../components/Dashboard/Home/Header'
 import BtnHome from '../../../components/Dashboard/Home/BtnHome'
 import WaterIntake from '../../../components/Dashboard/Home/WaterIntake'
+import Sleep from '../../../components/Dashboard/Home/Sleep'
+import Calories from '../../../components/Dashboard/Home/Calories'
 
 export default function Home() {
   return (
@@ -28,18 +31,16 @@ export default function Home() {
         </View>
         <View style={styles.ActivityStatus}>
           <Text style={styles.ActivityStatusTitle}>Activity Status</Text>
-          <View style={styles.HeartRate}>
-          </View>
           <View style={styles.ActivityStatus2}>
             <View style={styles.HeartRatWaterIntakee}>
                 <WaterIntake />
             </View>
             <View style={styles.SleepCalories}>
               <View style={styles.Sleep}>
-                <Text>hello</Text>
+                <Sleep />
               </View>
               <View style={styles.Calories}>
-                <Text>helloddd</Text>
+                <Calories />
               </View>
             </View>
           </View>
@@ -74,7 +75,7 @@ const styles = StyleSheet.create({
     },
     ActivityStatusTitle:{
       marginLeft:"8%",
-      marginTop:24,
+      marginTop:25,
       fontSize:18,
       fontWeight:'bold'
     },
@@ -97,7 +98,6 @@ const styles = StyleSheet.create({
       },
       shadowOpacity: 0.23,
       shadowRadius: 2.62,
-
       elevation: 4,
     },
     ActivityStatus2:{
