@@ -17,6 +17,7 @@ import BtnHome from '../../../components/Dashboard/Home/BtnHome'
 import WaterIntake from '../../../components/Dashboard/Home/WaterIntake'
 import Sleep from '../../../components/Dashboard/Home/Sleep'
 import Calories from '../../../components/Dashboard/Home/Calories'
+import WorkoutProgress from '../../../components/Dashboard/Home/WorkoutProgress'
 
 export default function Home({navigation}) {
   function Notification(){
@@ -50,7 +51,9 @@ export default function Home({navigation}) {
         </View>
         <View>
           <Text style={styles.ActivityStatusTitle}>Workout Progress</Text>
-
+          <View style={styles.statWorkoutProgressContainer}>
+              <WorkoutProgress />
+          </View>
         </View>
     </ScrollView>
   )
@@ -144,5 +147,8 @@ const styles = StyleSheet.create({
       shadowOpacity: 0.23,
       shadowRadius: 2.62,
       elevation: 4,
+    },
+    statWorkoutProgressContainer:{
+      marginBottom:30
     }
 });

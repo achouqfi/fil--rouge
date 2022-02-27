@@ -1,29 +1,35 @@
 import React, {useEffect, useRef} from 'react'
-import { NavigationContainer } from '@react-navigation/native';
 import {
     StyleSheet,
     View,
     Text,
     TouchableOpacity,
     Animated,
-    SafeAreaView
+    SafeAreaView,
+    StatusBar
 } from 'react-native';
-export default function Notification() {
+import HeaderNotification from '../../../components/Dashboard/Notification/Header'
+import NotificatonList from '../../../components/Dashboard/Notification/Notification'
 
-
+export default function Notification({navigation}) {
+  function back(){
+    navigation.goBack();
+  }
 
   return (
     <View style={styles.container}>
-        <Text>hello Notification dash</Text>
+        <HeaderNotification back={back} HeaderTitle={'Notification'} />
+        <View>
+            <NotificatonList />
+        </View>
     </View>
   )
 }
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        justifyContent:'center',
-        alignItems:'center',
-        backgroundColor:'white'
+        marginTop:StatusBar.currentHeight,
+        backgroundColor:'white',
+        flex:1
     }
 });

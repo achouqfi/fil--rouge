@@ -6,21 +6,27 @@ import {
     Text,
     TouchableOpacity,
     Animated,
-    SafeAreaView
+    SafeAreaView,
+    StatusBar
 } from 'react-native';
-export default function Profile() {
+import Header from '../../../components/Dashboard/Notification/Header'
+
+export default function Profile({navigation}) {
+  function back(){
+    navigation.goBack();
+  }
+
   return (
     <View style={styles.container}>
-        <Text>hello Profile dash</Text>
+          <Header back={back} HeaderTitle={'Profile'} />
     </View>
   )
 }
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent:'center',
-        alignItems:'center',
-        backgroundColor:'white'
-    }
+  container: {
+    marginTop:StatusBar.currentHeight,
+    backgroundColor:'white',
+    flex:1
+}
 });
