@@ -10,6 +10,7 @@ import {
     StatusBar
 } from 'react-native';
 import Header from '../../../components/Dashboard/Notification/Header'
+import HeaderProfile from '../../../components/Dashboard/Profile/HeaderProfile'
 
 export default function Profile({navigation}) {
   function back(){
@@ -18,7 +19,10 @@ export default function Profile({navigation}) {
 
   return (
     <View style={styles.container}>
-          <Header back={back} HeaderTitle={'Profile'} />
+        <Header back={back} HeaderTitle={'Profile'} />
+        <View>
+          <HeaderProfile />
+        </View>
     </View>
   )
 }

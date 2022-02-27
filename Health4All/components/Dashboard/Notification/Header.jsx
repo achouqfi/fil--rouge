@@ -46,7 +46,7 @@ export default function Header({back, HeaderTitle}) {
                 buttonStyle={styles.Option}
             ></Button>
             
-            <BottomSheet modalProps={{}} isVisible={isVisible}>
+            <BottomSheet  isVisible={isVisible}>
                 {list.map((l, i) => (
                 <ListItem
                     key={i}

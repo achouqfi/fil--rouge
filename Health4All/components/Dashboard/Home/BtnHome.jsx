@@ -19,21 +19,21 @@ export default function BtnHome({ color1, color2, btnTitle }) {
         end={{ x: 1, y: 0.5 }}
         style={styles.btnViewMore}
         >
-            <TouchableOpacity >
-                <Text style={styles.titleBtn}>{btnTitle}</Text>
-            </TouchableOpacity>
+          <TouchableOpacity >
+              <Text style={styles.titleBtn}>{btnTitle}</Text>
+          </TouchableOpacity>
     </LinearGradient>
   )
 }
 
 const styles = StyleSheet.create({
     btnViewMore:{
-      width:113,
+      width:105,
       borderRadius:30
     },
     titleBtn:{
-      paddingHorizontal:22,
-      paddingVertical:10,
+      paddingHorizontal:18,
+      paddingVertical:7,
       color:'white',
       fontSize:14,
       fontWeight:'bold',
