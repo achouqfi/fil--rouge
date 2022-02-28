@@ -1,9 +1,5 @@
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from '@react-navigation/native';
-import {
-    View ,
-    Text
-} from 'react-native';
 import Onboarding from './screens/Onbarding/Onboarding'
 import CreateAccount from './screens/Auth/AccountCreation'
 import LoginIn from './screens/Auth/LoginIn'
@@ -11,7 +7,6 @@ import CreateAccount1 from './screens/Auth/AccountCreation1'
 import StartedHome from './screens/Auth/StartedHome'
 import Notification from './screens/Dashboard/Notification/Notification'
 import Buttomnavigation from './navigation/ButtomNavigation';
-
 
 const Stack = createStackNavigator()
 
