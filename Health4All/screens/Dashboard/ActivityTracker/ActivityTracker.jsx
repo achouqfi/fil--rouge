@@ -6,21 +6,28 @@ import {
     Text,
     TouchableOpacity,
     Animated,
-    SafeAreaView
+    StatusBar
 } from 'react-native';
-export default function ActivityTracker() {
+import Header from '../../../components/Dashboard/Notification/Header'
+import HeaderActivityTracker from '../../../components/Dashboard/ActivityTracker/HeaderActivityTracker'
+
+export default function ActivityTracker({navigation}) {
+  function back(){
+    navigation.goBack();
+  }
+
   return (
     <View style={styles.container}>
-        <Text>hello ActivityTracker dash</Text>
+        <Header back={back} HeaderTitle={'Activity Tracker'} />
+        <HeaderActivityTracker />
     </View>
   )
 }
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        justifyContent:'center',
-        alignItems:'center',
-        backgroundColor:'white'
+      marginTop:StatusBar.currentHeight,
+      backgroundColor:'white',
+      flex:1
     }
 });

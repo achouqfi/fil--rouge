@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
     container:{
         flexDirection:'row',
         justifyContent:'space-between',
-        marginTop:10,
+        marginVertical:10,
         marginHorizontal:18
     },
     btnBack:{
@@ -79,7 +79,8 @@ const styles = StyleSheet.create({
     },
     textNotif:{
         fontSize:20,
-        fontWeight:'bold'
+        fontWeight:'bold',
+        paddingTop:3
     },
     Option:{
         height:32,
@@ -89,5 +90,4 @@ const styles = StyleSheet.create({
         padding:8,
         color:'black'
     },
-
 });
