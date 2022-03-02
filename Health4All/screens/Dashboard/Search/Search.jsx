@@ -12,7 +12,7 @@ import {
 import { SpeedDial } from 'react-native-elements';
 import HeaderSearch from '../../../components/Dashboard/Notification/Header'
 import Svg, { Path,Ellipse } from "react-native-svg"
-import MapView from 'react-native-maps';
+import Map from '../../../components/Dashboard/ActivityTracker/Map'
 
 export default function Search({navigation}) {
   const [open, setOpen] = useState(false);
@@ -82,8 +82,9 @@ export default function Search({navigation}) {
           </>
           ):null
         )}
-      
-        <MapView style={styles.map} />
+
+        <Map />
+        
         <SpeedDial
           isOpen={open}
           icon={{ name: 'edit', color: '#fff' }}
