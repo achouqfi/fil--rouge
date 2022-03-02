@@ -12,7 +12,7 @@ import {
 import { SpeedDial } from 'react-native-elements';
 import HeaderSearch from '../../../components/Dashboard/Notification/Header'
 import Svg, { Path,Ellipse } from "react-native-svg"
-import Map from '../../../components/Dashboard/ActivityTracker/Map'
+import Map from '../../../components/Dashboard/Search/Map'
 
 export default function Search({navigation}) {
   const [open, setOpen] = useState(false);
