@@ -10,19 +10,11 @@ import {
 } from 'react-native';
 import HeaderStat from './HeaderStat'
 import { LinearGradient } from 'expo-linear-gradient';
-import {
-  LineChart,
-  BarChart,
-  PieChart,
-  ProgressChart,
-  ContributionGraph,
-  StackedBarChart,
-} from 'react-native-chart-kit';
 
-const Calories = () => {
+const Calories = ({to}) => {
     return (
         <View style={styles.container}>
-            <View>
+            <TouchableOpacity onPress={to}>
                 <HeaderStat title1={'Calories'} titleDesc={"760 kCal"} />
                 <View style={styles.ChartContainer}> 
                     <View style={styles.borderCalories}>
@@ -41,7 +33,7 @@ const Calories = () => {
                       </LinearGradient>
                     </View>
                 </View>
-            </View>
+            </TouchableOpacity>
         </View>
     );
 }

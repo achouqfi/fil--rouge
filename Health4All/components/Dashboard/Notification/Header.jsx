@@ -48,15 +48,15 @@ export default function Header({back, HeaderTitle}) {
             
             <BottomSheet  isVisible={isVisible}>
                 {list.map((l, i) => (
-                <ListItem
-                    key={i}
-                    containerStyle={l.containerStyle}
-                    onPress={l.onPress}
-                >
-                    <ListItem.Content>
-                    <ListItem.Title style={l.titleStyle}>{l.title}</ListItem.Title>
-                    </ListItem.Content>
-                </ListItem>
+                    <ListItem
+                        key={i}
+                        containerStyle={l.containerStyle}
+                        onPress={l.onPress}
+                    >
+                        <ListItem.Content>
+                        <ListItem.Title style={l.titleStyle}>{l.title}</ListItem.Title>
+                        </ListItem.Content>
+                    </ListItem>
                 ))}
             </BottomSheet>
         </View>

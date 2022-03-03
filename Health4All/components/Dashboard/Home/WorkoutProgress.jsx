@@ -10,16 +10,11 @@ import {
 } from 'react-native';
 import {
   LineChart,
-  BarChart,
-  PieChart,
-  ProgressChart,
-  ContributionGraph,
-  StackedBarChart,
 } from 'react-native-chart-kit';
 
 export default function WorkoutProgress() {
   return (
-    <View style={styles.container}>
+    <View style={styles.container}>   
         <LineChart
         data={{
           labels: ['Sun', 'Mon', 'Tue', 'Wed','Thu','Fri','Sat'],

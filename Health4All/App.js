@@ -7,6 +7,7 @@ import CreateAccount1 from './screens/Auth/AccountCreation1'
 import StartedHome from './screens/Auth/StartedHome'
 import Notification from './screens/Dashboard/Notification/Notification'
 import Buttomnavigation from './navigation/ButtomNavigation';
+import HomeMealPlanner from './screens/Dashboard/MealPlanner/HomeMealPlanner';
 
 const Stack = createStackNavigator()
 
@@ -32,6 +33,7 @@ export default function App() {
           <Stack.Screen name="CreateAccount" component={CreateAccount} options={{ headerShown :false }}  />
           <Stack.Screen name="LoginIn" component={LoginIn} options={{ headerShown :false }}  />
           <Stack.Screen name="CreateAccount1" component={CreateAccount1} options={{ headerShown :false }}  />
+          <Stack.Screen name="MealPlanner" component={HomeMealPlanner} options={{ headerShown :false }}  />
         </Stack.Navigator>
     </NavigationContainer>
   );

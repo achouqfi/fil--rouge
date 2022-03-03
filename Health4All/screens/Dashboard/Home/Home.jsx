@@ -5,7 +5,6 @@ import {
     View,
     Text,
     TouchableOpacity,
-    Animated,
     SafeAreaView,
     ScrollView,
     StatusBar,
@@ -20,9 +19,15 @@ import Calories from '../../../components/Dashboard/Home/Calories'
 import WorkoutProgress from '../../../components/Dashboard/Home/WorkoutProgress'
 
 export default function Home({navigation}) {
+  
   function Notification(){
-      navigation.push('Notification');
+    navigation.push('Notification');
   }
+
+  function HomeMealPlanner(){
+    navigation.push('MealPlanner');
+  }
+
   return (
     <ScrollView style={styles.container}>
         <Header to={Notification} />
@@ -44,7 +49,7 @@ export default function Home({navigation}) {
                 <Sleep />
               </View>
               <View style={styles.Calories}>
-                <Calories />
+                <Calories to={HomeMealPlanner} />
               </View>
             </View>
           </View>
