@@ -1,4 +1,4 @@
-import React, {useEffect, useRef} from 'react'
+import React, {useEffect, useState} from 'react'
 import {
     StyleSheet,
     View,
@@ -13,16 +13,22 @@ import BtnHome from '../../../components/Dashboard/Home/BtnHome'
 import axios from 'axios';
 
 export default function HomeMealPlanner({navigation}) {
+    const [nutritionValue, setNutritionValue] = useState('');
+    const [data, Setdata] = useState('');
     function back(){
         navigation.goBack();
     }
     function MealPlanner(){
         navigation.goBack();
     }
+
+    const updateSearch = (nutritionValue) => {
+        setNutritionValue(nutritionValue);
+    };
     
     let params = {
         api_key:'GBOYr6VSkg3Q2B28OhnngLv4mIElPT7lfmBHKS3y',
-        query:'cheddar cheese',
+        query: nutritionValue,
         dataType:["Survey{FNDDS}"],
         pageSize:5
     }
@@ -30,8 +36,9 @@ export default function HomeMealPlanner({navigation}) {
     let api_url = `https://api.nal.usda.gov/fdc/v1/foods/search?query=${encodeURIComponent(params.query)}=2&api_key=GBOYr6VSkg3Q2B28OhnngLv4mIElPT7lfmBHKS3y`
 
     function getData(){
+        console.log(api_url);
         return axios(api_url)
-            .then(res=>console.log(res.data))
+            .then(res=>Setdata(res.data))
             .catch(err=>err.json())
     }
       return (
@@ -46,6 +53,8 @@ export default function HomeMealPlanner({navigation}) {
             <View>
                 <TextInput        
                     placeholder='Choose Gender'
+                    onChangeText={updateSearch}
+                    value={nutritionValue}
                     style={{ 
                         width:'86%',
                         height:40,
@@ -65,6 +74,9 @@ export default function HomeMealPlanner({navigation}) {
                 >
                     <Text>search</Text>
                 </TouchableOpacity>
+                {/* {data != null && (
+                    // <Text>{data.object.additionalDescriptions}</Text>
+                )} */}
             </View>
         </View>
       )

@@ -17,11 +17,12 @@ export default function HeaderActivityTracker() {
         setVisible(!visible);
     };
   return (
+      <View>
     <View style={styles.container}> 
         <View style={styles.headerTarget}>
             <Text style={styles.targerTitle}>Today Target</Text>
             <TouchableOpacity  onPress={toggleOverlay}>
-                <Text style={[styles.targerTitle,styles.targerAdd ]}>+</Text>
+                <Text style={[ styles.targerTitle,styles.targerAdd ]}>+</Text>
             </TouchableOpacity>
         </View>
         <View style={styles.Target}>
@@ -46,55 +47,55 @@ export default function HeaderActivityTracker() {
                 </View>
             </View>
         </View>
-
-        <Overlay isVisible={visible} onBackdropPress={toggleOverlay}>
-        <Text style={styles.textPrimary}>Hello!</Text>
-        <Text style={styles.textSecondary}>
-          Welcome to React Native Elements
-        </Text>
-        <Input
-            placeholder='INPUT WITH ERROR MESSAGE'
-            errorStyle={{ color: 'red' }}
-            // errorMessage='ENTER A VALID ERROR HERE'
-        />
-        <Input
-            placeholder='INPUT WITH ERROR MESSAGE'
-            errorStyle={{ color: 'red' }}
-            // errorMessage='ENTER A VALID ERROR HERE'
-        />
-        <Input
-            placeholder='INPUT WITH ERROR MESSAGE'
-            errorStyle={{ color: 'red' }}
-            width={100}
-            // errorMessage='ENTER A VALID ERROR HERE'
-        />
-
-        <Button
-          icon={
-            <Icon
-              name="close"
-              type="font-awesome"
-              color="white"
-              size={25}
-              iconStyle={{ marginRight: 10 }}
-            />
-          }
-          onPress={toggleOverlay}
-        />
-        <Button
-          icon={
-            <Icon
-              name="send"
-              type="font-awesome"
-              color="white"
-              size={25}
-              iconStyle={{ marginRight: 10 }}
-            />
-          }
-          onPress={toggleOverlay}
-        />
-      </Overlay>
     </View>
+    <Overlay isVisible={visible} onBackdropPress={toggleOverlay}>
+    <Text style={styles.textPrimary}>Hello!</Text>
+    <Text style={styles.textSecondary}>
+      Welcome to React Native Elements
+    </Text>
+    <Input
+        placeholder='INPUT WITH ERROR MESSAGE'
+        errorStyle={{ color: 'red' }}
+        // errorMessage='ENTER A VALID ERROR HERE'
+    />
+    <Input
+        placeholder='INPUT WITH ERROR MESSAGE'
+        errorStyle={{ color: 'red' }}
+        // errorMessage='ENTER A VALID ERROR HERE'
+    />
+    <Input
+        placeholder='INPUT WITH ERROR MESSAGE'
+        errorStyle={{ color: 'red' }}
+        width={100}
+        // errorMessage='ENTER A VALID ERROR HERE'
+    />
+
+    <Button
+      icon={
+        <Icon
+          name="close"
+          type="font-awesome"
+          color="white"
+          size={25}
+          iconStyle={{ marginRight: 10 }}
+        />
+      }
+      onPress={toggleOverlay}
+    />
+    <Button
+      icon={
+        <Icon
+          name="send"
+          type="font-awesome"
+          color="white"
+          size={25}
+          iconStyle={{ marginRight: 10 }}
+        />
+      }
+      onPress={toggleOverlay}
+    />
+  </Overlay>
+  </View>
   )
 }
 

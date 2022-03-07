@@ -100,7 +100,6 @@ const list2= [
     //       height="100%"
     //       xml={chart} 
     //   />
-
   },
 ];
 
@@ -166,15 +165,16 @@ const styles = StyleSheet.create({
     width: width-45,
     backgroundColor:'white',
     marginHorizontal:25,
-    marginVertical:14,
+    marginVertical:8,
     shadowColor: "#000",
     shadowOffset: {
       width: 0,
-      height: 6,
+      height: 1,
     },
-    shadowOpacity: 0.37,
-    shadowRadius: 7.49,
-    elevation: 12,
+    shadowOpacity: 0.22,
+    shadowRadius: 2.22,
+    
+    elevation: 3,
     borderRadius:15,
     padding:20
   },
