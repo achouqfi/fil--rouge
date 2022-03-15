@@ -8,6 +8,7 @@ import {
     Animated,
     StatusBar
 } from 'react-native';
+import LatestActivity from '../../../components/Dashboard/ActivityTracker/LatestActivity'
 import Header from '../../../components/Dashboard/Notification/Header'
 import HeaderActivityTracker from '../../../components/Dashboard/ActivityTracker/HeaderActivityTracker'
 import ActivityProgress from '../../../components/Dashboard/ActivityTracker/ActivityProgress'
@@ -21,8 +22,19 @@ export default function ActivityTracker({navigation}) {
     <View style={styles.container}>
         <Header back={back} HeaderTitle={'Activity Tracker'} />
         <HeaderActivityTracker />
-        <Text style={styles.ActivityStatusTitle}>Activity Progress</Text>
+        <View>
+          <Text style={styles.ActivityStatusTitle}>Activity Progress</Text>
           <ActivityProgress />
+        </View>
+        <View>
+            <View style={styles.LatestActivityContainer} >
+              <Text style={styles.ActivityStatusTitle}>Latest Activity</Text>
+              <TouchableOpacity>
+                <Text style={styles.seeMore}>See more</Text>
+              </TouchableOpacity>
+            </View>
+            <LatestActivity />
+        </View>
     </View>
   )
 }
@@ -39,5 +51,15 @@ const styles = StyleSheet.create({
       fontSize:18,
       fontWeight:'bold'
     },
-
+    LatestActivityContainer:{
+      flexDirection:'row',
+      justifyContent:'space-between',
+      alignItems:'center',
+    },
+    seeMore:{
+      marginRight:'10%',
+      fontSize:14,
+      marginTop:10,
+      color:'#7B6F72'
+    }
 });

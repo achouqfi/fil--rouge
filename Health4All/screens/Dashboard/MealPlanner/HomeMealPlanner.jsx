@@ -34,7 +34,6 @@ export default function HomeMealPlanner({navigation}) {
     }
 
     let api_url = `https://api.nal.usda.gov/fdc/v1/foods/search?query=${encodeURIComponent(params.query)}=2&api_key=GBOYr6VSkg3Q2B28OhnngLv4mIElPT7lfmBHKS3y`
-
     function getData(){
         console.log(api_url);
         return axios(api_url)
