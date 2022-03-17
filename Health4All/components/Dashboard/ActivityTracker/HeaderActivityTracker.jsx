@@ -5,11 +5,11 @@ import {
     Text,
     TouchableOpacity,
     Animated,
-    SafeAreaView,
+    TextInput,
     Image
 } from 'react-native';
 import { Button, Overlay, Icon, Input } from 'react-native-elements';
-
+import BtnAdd from '../../Auth/BtnAuth'
 export default function HeaderActivityTracker() {
     const [visible, setVisible] = useState(false);
 
@@ -49,51 +49,50 @@ export default function HeaderActivityTracker() {
         </View>
     </View>
     <Overlay isVisible={visible} onBackdropPress={toggleOverlay}>
-    <Text style={styles.textPrimary}>Hello!</Text>
+    <View style={styles.headerModal}>
+        <Text style={styles.textPrimary}>Hello!</Text>
+        <TouchableOpacity onPress={toggleOverlay}>
+            <Text>Close</Text>
+        </TouchableOpacity>
+    </View>
     <Text style={styles.textSecondary}>
-      Welcome to React Native Elements
+        Welcome to React Native Elements
     </Text>
-    <Input
-        placeholder='INPUT WITH ERROR MESSAGE'
+    <TextInput
+        placeholder='name'
         errorStyle={{ color: 'red' }}
-        // errorMessage='ENTER A VALID ERROR HERE'
+        style={styles.input}
     />
-    <Input
-        placeholder='INPUT WITH ERROR MESSAGE'
+    <TextInput
+        placeholder='Type of target'
         errorStyle={{ color: 'red' }}
-        // errorMessage='ENTER A VALID ERROR HERE'
+        style={styles.input}
     />
-    <Input
-        placeholder='INPUT WITH ERROR MESSAGE'
+    <TextInput
+        placeholder='arget'
         errorStyle={{ color: 'red' }}
-        width={100}
-        // errorMessage='ENTER A VALID ERROR HERE'
+        style={styles.input}
     />
+    <View style={{ flexDirection:'row' }}>
+        <Button
+            title={'send'}
+            backgroundColor={'#92A3FD'}
 
-    <Button
-      icon={
-        <Icon
-          name="close"
-          type="font-awesome"
-          color="white"
-          size={25}
-          iconStyle={{ marginRight: 10 }}
+            style={{ 
+                marginLeft: 20,
+             }}
+            icon={
+                <Icon
+                    name="send"
+                    type="font-awesome"
+                    color="white"
+                    size={15}
+                    iconStyle={{ marginRight: 10 }}
+                />
+            }
+            onPress={toggleOverlay}
         />
-      }
-      onPress={toggleOverlay}
-    />
-    <Button
-      icon={
-        <Icon
-          name="send"
-          type="font-awesome"
-          color="white"
-          size={25}
-          iconStyle={{ marginRight: 10 }}
-        />
-      }
-      onPress={toggleOverlay}
-    />
+    </View>
   </Overlay>
   </View>
   )
@@ -123,7 +122,7 @@ const styles = StyleSheet.create({
         height:30,
         width:30,
         textAlign:'center',
-        fontSize:22,
+        fontSize:20,
         fontWeight:'300',
         borderRadius:10,
     },
@@ -150,6 +149,21 @@ const styles = StyleSheet.create({
     img1:{
         margin:7,
         marginTop:12
+    },
+    input:{
+        height:30,
+        backgroundColor:"#E7E9EB",
+        borderRadius:20,
+        paddingHorizontal:5,
+        fontSize:12,
+        color:"white",
+        marginVertical:5,
+        paddingHorizontal:20
+    },
+    headerModal:{
+        flexDirection:'row',
+        justifyContent:'space-between',
+        alignItems:'center'
     }
     
 });

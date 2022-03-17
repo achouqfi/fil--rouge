@@ -5,7 +5,7 @@ import {
     View,
     Text,
     TouchableOpacity,
-    Animated,
+    ScrollView,
     StatusBar
 } from 'react-native';
 import LatestActivity from '../../../components/Dashboard/ActivityTracker/LatestActivity'
@@ -19,7 +19,7 @@ export default function ActivityTracker({navigation}) {
   }
 
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
         <Header back={back} HeaderTitle={'Activity Tracker'} />
         <HeaderActivityTracker />
         <View>
@@ -35,7 +35,7 @@ export default function ActivityTracker({navigation}) {
             </View>
             <LatestActivity />
         </View>
-    </View>
+    </ScrollView>
   )
 }
 
@@ -55,6 +55,7 @@ const styles = StyleSheet.create({
       flexDirection:'row',
       justifyContent:'space-between',
       alignItems:'center',
+      marginBottom:10
     },
     seeMore:{
       marginRight:'10%',
