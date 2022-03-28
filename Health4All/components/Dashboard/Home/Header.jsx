@@ -8,7 +8,7 @@ import {
     SafeAreaView
 } from 'react-native';
 import Svg, { Path,Circle, Mask, G } from "react-native-svg"
-
+import Profile from '../../../assets/icons/Profile.svg'
 export default function Header({to}) {
 
   return (

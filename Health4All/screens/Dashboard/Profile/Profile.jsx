@@ -17,16 +17,9 @@ import {
 import Header from '../../../components/Dashboard/Notification/Header'
 import HeaderProfile from '../../../components/Dashboard/Profile/HeaderProfile'
 import Setting from '../../../components/Dashboard/Profile/Setting'
-import { SvgXml  } from 'react-native-svg';
-import icon from '../../../constants/icons'
 
-// const { graph, iconProfile, document, chart  } = icon
 var width = Dimensions.get('window').width;
 
-// iconProfile=`<svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-// <circle opacity="0.2" cx="25" cy="25" r="25" fill="white"/>
-// </svg>
-// `
 const list1= [
   {
     id:1,

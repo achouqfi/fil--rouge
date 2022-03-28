@@ -46,7 +46,6 @@ export default function Notification() {
                 renderItem={({item})=> <NotificationItem item={item} />}
                 showsVerticalScrollIndicator ={true}
                 keyExtractor={(item)=> item.id}
-
             />
         </View>
     )
