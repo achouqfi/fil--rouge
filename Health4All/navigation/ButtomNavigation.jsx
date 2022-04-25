@@ -70,16 +70,12 @@ const Buttomnavigation = () => {
                                 width="22" 
                                 height="22" 
                                 viewBox="0 0 21 22" 
-                                fill={ "none"} 
+                                fill={ "none"}
                                 xmlns="http://www.w3.org/2000/svg"
                             >
-                                <Path d="M5.24487 13.781L8.23801 9.89088L11.6522 12.5728L14.5813 8.79248" 
-                                    stroke={focused ? "#C58BF2" : "black"}
-                                    stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                <Circle cx="17.9954" cy="3.20003" r="1.9222"
-                                    stroke={focused ? "#C58BF2" : "black"} stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                <Path d="M12.9245 2.12012H5.65679C2.64535 2.12012 0.778076 4.25284 0.778076 7.26428V15.3467C0.778076 18.3581 2.60874 20.4817 5.65679 20.4817H14.2609C17.2724 20.4817 19.1396 18.3581 19.1396 15.3467V8.30776" 
-                                    stroke={focused ? "#C58BF2" : "black"} stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <Path fill-rule="evenodd"  clip-rule="evenodd"  d="M13.0402 1.0515C14.0502 1.4535 14.3592 2.8535 14.7722 3.3035C15.1852 3.7535 15.7762 3.9065 16.1032 3.9065C17.8412 3.9065 19.2502 5.3155 19.2502 7.0525V12.8475C19.2502 15.1775 17.3602 17.0675 15.0302 17.0675H4.97024C2.63924 17.0675 0.750244 15.1775 0.750244 12.8475V7.0525C0.750244 5.3155 2.15924 3.9065 3.89724 3.9065C4.22324 3.9065 4.81424 3.7535 5.22824 3.3035C5.64124 2.8535 5.94924 1.4535 6.95924 1.0515C7.97024 0.6495 12.0302 0.6495 13.0402 1.0515Z" stroke={focused ? "#C58BF2" : "black"} stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <Path d="M15.4955 6.5H15.5045" stroke={focused ? "#C58BF2" : "black"} stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <Path fill-rule="evenodd" clip-rule="evenodd" d="M13.179 10.1282C13.179 8.37222 11.756 6.94922 10 6.94922C8.24404 6.94922 6.82104 8.37222 6.82104 10.1282C6.82104 11.8842 8.24404 13.3072 10 13.3072C11.756 13.3072 13.179 11.8842 13.179 10.1282Z" stroke={focused ? "#C58BF2" : "black"} stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                             </Svg>
                             <View 
                                 style={{ 
@@ -147,16 +143,21 @@ const Buttomnavigation = () => {
                     headerShown :false,
                     tabBarIcon: ({focused})=>(
                         <View style={{ height:30, width:30 }}>
+
                             <Svg 
                                 width="22" 
                                 height="22" 
                                 viewBox="0 0 21 22" 
-                                fill={ "none"}
+                                fill={ "none"} 
                                 xmlns="http://www.w3.org/2000/svg"
                             >
-                                <Path fill-rule="evenodd"  clip-rule="evenodd"  d="M13.0402 1.0515C14.0502 1.4535 14.3592 2.8535 14.7722 3.3035C15.1852 3.7535 15.7762 3.9065 16.1032 3.9065C17.8412 3.9065 19.2502 5.3155 19.2502 7.0525V12.8475C19.2502 15.1775 17.3602 17.0675 15.0302 17.0675H4.97024C2.63924 17.0675 0.750244 15.1775 0.750244 12.8475V7.0525C0.750244 5.3155 2.15924 3.9065 3.89724 3.9065C4.22324 3.9065 4.81424 3.7535 5.22824 3.3035C5.64124 2.8535 5.94924 1.4535 6.95924 1.0515C7.97024 0.6495 12.0302 0.6495 13.0402 1.0515Z" stroke={focused ? "#C58BF2" : "black"} stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                <Path d="M15.4955 6.5H15.5045" stroke={focused ? "#C58BF2" : "black"} stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                <Path fill-rule="evenodd" clip-rule="evenodd" d="M13.179 10.1282C13.179 8.37222 11.756 6.94922 10 6.94922C8.24404 6.94922 6.82104 8.37222 6.82104 10.1282C6.82104 11.8842 8.24404 13.3072 10 13.3072C11.756 13.3072 13.179 11.8842 13.179 10.1282Z" stroke={focused ? "#C58BF2" : "black"} stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <Path d="M5.24487 13.781L8.23801 9.89088L11.6522 12.5728L14.5813 8.79248" 
+                                    stroke={focused ? "#C58BF2" : "black"}
+                                    stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <Circle cx="17.9954" cy="3.20003" r="1.9222"
+                                    stroke={focused ? "#C58BF2" : "black"} stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <Path d="M12.9245 2.12012H5.65679C2.64535 2.12012 0.778076 4.25284 0.778076 7.26428V15.3467C0.778076 18.3581 2.60874 20.4817 5.65679 20.4817H14.2609C17.2724 20.4817 19.1396 18.3581 19.1396 15.3467V8.30776" 
+                                    stroke={focused ? "#C58BF2" : "black"} stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                             </Svg>
                             <View 
                                 style={{ 

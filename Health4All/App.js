@@ -26,6 +26,7 @@ export default function App() {
   return (
     <NavigationContainer>
         <Stack.Navigator>
+          <Stack.Screen name="Onboarding" component={Onboarding} options={{ headerShown :false }} />
           <Stack.Screen name="StartedHome" component={StartedHome} options={{ headerShown :false }}  />
           <Stack.Screen name="Notification" component={Notification} options={{ headerShown :false }}  />
           <Stack.Screen name="Dashboard" component={Buttomnavigation} options={{ headerShown :false }}  />
@@ -33,7 +34,6 @@ export default function App() {
           <Stack.Screen name="LoginIn" component={LoginIn} options={{ headerShown :false }} />
           <Stack.Screen name="CreateAccount1" component={CreateAccount1} options={{ headerShown :false }}  />
           <Stack.Screen name="MealPlanner" component={HomeMealPlanner} options={{ headerShown :false }}  />
-          <Stack.Screen name="Onboarding" component={Onboarding} options={{ headerShown :false }} />
         </Stack.Navigator>
     </NavigationContainer>
   );
