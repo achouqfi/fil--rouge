@@ -1,11 +1,34 @@
-import { View, Text } from 'react-native'
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import React from 'react'
 
-export default function Setting() {
-  
+export default function Setting({ item }) {  
   return (
-    <View>
-      <Text>Setting</Text>
+    <View style={styles.container}>
+      <View style={styles.icon} >
+        <Text>{item.icon}</Text>
+      </View>
+      <View style={styles.title}>
+        <Text style={{ fontSize:14 }}>{item.title}</Text>
+      </View>
+      <TouchableOpacity style={styles.NavigationTo}>{item.to}</TouchableOpacity>
     </View>
   )
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flexDirection: 'row',
+    paddingVertical: 4,
+  },
+  title: {
+    color: 'black',
+    marginLeft: 10,
+    width: '50%',
+  },
+  NavigationTo: {
+    marginLeft: '34%',
+  },
+  icon:{
+    width: '7%',
+  }
+});

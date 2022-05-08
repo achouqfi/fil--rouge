@@ -16,7 +16,7 @@ import {
 } from 'react-native-elements';
 import Header from '../../../components/Dashboard/Notification/Header'
 import HeaderProfile from '../../../components/Dashboard/Profile/HeaderProfile'
-import Options from '../../../components/Dashboard/Profile/Setting'
+import Options from '../../../components/Dashboard/Profile/SettingItem'
 
 var width = Dimensions.get('window').width;
 
@@ -24,13 +24,12 @@ export default function Profile({navigation}) {
   function back(){
     navigation.goBack();
   }
-
   
   return (
     <View style={styles.container}>
         <Header back={back} HeaderTitle={'Profile'} />
         <HeaderProfile />
-       {/* <Options /> */}
+        <Options />
     </View>
   )
 }
@@ -60,6 +59,6 @@ const styles = StyleSheet.create({
   },
   title:{
     fontWeight:'bold',
-    fontSize:15
+      fontSize:15
   }
 });

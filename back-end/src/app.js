@@ -19,7 +19,6 @@ app.use(express.static(`${__dirname}/src`));
 morgane.token('body', (req) => JSON.stringify(req.body));
 app.use(morgane(':status :method :url :body :response-time ms',{stream: fs.createWriteStream('./Logger.log', {flags: 'a'})}))
 
-
 mongoose.connect(process.env.DB_CONNECTION, () => {
     console.log('Database Connected')
 })

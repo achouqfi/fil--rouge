@@ -7,10 +7,9 @@ import {
     Text,
     Dimensions 
 } from 'react-native';
-import Svg, { Path, Circle } from "react-native-svg"
 
 const UserDataItem = ({item}) => {
-    var width = Dimensions.get('window').width;
+
     return (
         <View style={styles.container} >
             <View>
