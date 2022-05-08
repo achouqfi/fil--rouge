@@ -5,26 +5,52 @@ import {
   StyleSheet,
   Button,
   TextInput,
-  Image
+  Image,
+  TouchableOpacity,
+  ScrollView
 } from "react-native";
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import Header from "../../Notification/Header";
-import Icons from '../../../../constants/icons';
-import { CheckBox } from 'react-native-elements';
+import Icons from "../../../../constants/icons";
+import DateTimePicker from '@react-native-community/datetimepicker';
+import { CheckBox } from "react-native-elements";
 import { Formik } from "formik";
-import HeaderText from '../../../Auth/Header';
+import HeaderText from "../../../Auth/Header";
+import Btn from '../../Home/BtnHome'
+import { LinearGradient } from 'expo-linear-gradient';
 
 const { Profile, Lock } = Icons;
 export default function index({ navigation }) {
+  const [date, setDate] = useState(new Date());
+  const [mode, setMode] = useState('date');
+  const [show, setShow] = useState(false);
+  const [text, setText] = useState("DD/MM/YYYY");
+
+  const onChange = (event, selectedDate) => {
+    const currentDate = selectedDate || date;
+    setShow(Platform.OS === 'ios');
+    setDate(currentDate);
+
+    let day = currentDate.getDate();
+    let month = currentDate.getMonth() + 1;
+    let year = currentDate.getFullYear();
+    setText(day + "/" + month + "/" + year);
+  }
+
+  const showMode = (currentMode) => {
+    setShow(true);
+    setMode(currentMode);
+  }
+
   const [check1, setCheck1] = useState(false);
   function back() {
     navigation.push("Dashboard");
   }
+  
   return (
     <View style={styles.container}>
       <Header back={back} HeaderTitle={"Personnal Data"} />
-      <HeaderText title1={"Let’s complete your profile"} title2={"It will help us to know more about you!"} />
-
+      <HeaderText title1={"Let’s complete your profile"} />
       <Formik
         initialValues={{
           email: "",
@@ -32,63 +58,87 @@ export default function index({ navigation }) {
           firstName: "",
           lastName: "",
           phone: "",
-          photo:"",
+          photo: "",
         }}
-        onSubmit={values => console.log(values)}
+        onSubmit={(values) => console.log(values)}
       >
-     {({ handleChange, handleBlur, handleSubmit, values }) => (
-       <View>
-         <TextInput
-           onChangeText={handleChange('email')}
-           onBlur={handleBlur('email')}
-           value={values.email}
-         />
+        {({ handleChange, handleBlur, handleSubmit, values }) => (
+          <ScrollView>
             <View style={styles.InputContainer}>
-                <TextInput        
-                    placeholder='First Name'
-                    style={{ 
-                        marginLeft:10, width:300,
-                    }}
-                />
+              <TextInput
+                onChangeText={handleChange("email")}
+                onBlur={handleBlur("email")}
+                value={values.email}
+                style={{ marginLeft: 10, width: 300 }}
+                placeholder="First Name"
+              />
             </View>
             <View style={styles.InputContainer}>
-                <TextInput        
-                    placeholder='Last Name'
-                    style={{ marginLeft:10, width:300 }}
-                />
+              <TextInput
+                placeholder="First Name"
+                style={{
+                  marginLeft: 10,
+                  width: 300,
+                }}
+              />
+            </View>
+            <View style={styles.InputContainer1} >
+              <TextInput
+                placeholder={text}
+                style={{ marginLeft: 10, width: 300 }}
+              />
+              <LinearGradient
+                  colors={[ '#92A3FD','#9DCEFF']}
+                  start={{ x: 0, y: 0.5 }}
+                  end={{ x: 1, y: 0.5 }}
+                  style={styles.btnViewMore}
+                  >
+                    <TouchableOpacity onPress={() => showMode("date")} >
+                        <Text style={styles.titleBtn}>Select</Text>
+                    </TouchableOpacity>
+              </LinearGradient>
             </View>
             <View style={styles.InputContainer}>
-                <TextInput        
-                    placeholder='Email'
-                    style={{ marginLeft:10, width:300 }}
-                />
+              <TextInput
+                placeholder="Email"
+                style={{ marginLeft: 10, width: 300 }}
+              />
+            </View>
+            <View style={styles.InputContainer} >
+              <TextInput
+                placeholder="Password"
+                style={{ marginLeft: 10, width: 300 }}
+                secureTextEntry={true}
+              />
             </View>
             <View style={styles.InputContainer}>
-                <TextInput        
-                    placeholder='Password'
-                    style={{ marginLeft:10, width:300 }}
-                    secureTextEntry={true}
-                />
+              <TextInput
+                placeholder="Password"
+                style={{ marginLeft: 10, width: 300 }}
+                secureTextEntry={true}
+              />
             </View>
             <View style={styles.InputContainer}>
-                <TextInput        
-                    placeholder='Password'
-                    style={{ marginLeft:10, width:300 }}
-                    secureTextEntry={true}
-                />
+              <TextInput
+                placeholder="Password"
+                style={{ marginLeft: 10, width: 300 }}
+                secureTextEntry={true}
+              />
             </View>
-            <View style={styles.InputContainer}>
-                <TextInput        
-                    placeholder='Password'
-                    style={{ marginLeft:10, width:300 }}
-                    secureTextEntry={true}
-                />
-            </View>
-
-         <Button onPress={handleSubmit} title="Submit" />
-       </View>
-     )}
-   </Formik>
+            <Button onPress={handleSubmit} title="Submit" />
+          </ScrollView>
+        )}
+      </Formik>
+      {show && (
+        <DateTimePicker
+          testID="dateTimePicker"
+          value={date}
+          mode={mode}
+          is24Hour={true}
+          display="default"
+          onChange={onChange}
+        />
+        )}
     </View>
   );
 }
@@ -99,25 +149,42 @@ const styles = StyleSheet.create({
     backgroundColor: "#FFFFFF",
     flex: 1,
   },
-  InputContainer:{
-    flexDirection:'row',
-    backgroundColor:"#F7F8F8",
-    marginHorizontal:25,
-    marginVertical:8,
-    borderRadius:15,
-    paddingHorizontal:2,
-    height:45,
+  InputContainer: {
+    flexDirection: "row",
+    backgroundColor: "#F7F8F8",
+    marginHorizontal: 25,
+    marginVertical: 8,
+    borderRadius: 15,
+    paddingHorizontal: 2,
+    height: 45,
   },
-  CheckBoxContainer:{
-      flexDirection:'row',
-      marginHorizontal:20,
-      marginTop:"2%",
+  InputContainer1: {
+    flexDirection: "row",
+    justifyContent: "space-around",
+    backgroundColor: "#F7F8F8",
+    marginHorizontal: 25,
+    marginVertical: 8,
+    borderRadius: 15,
+    paddingHorizontal: 22,
+    height: 45,
   },
-  CheckBox:{
-      marginRight:50,
-      width:'80%',
-      fontSize:12,
-      paddingVertical:10,
-      color:'grey',
+  CheckBoxContainer: {
+    flexDirection: "row",
+    marginHorizontal: 20,
+    marginTop: "2%",
+  },
+  btnViewMore:{
+    width:70,
+    borderRadius:20,
+    height:30,
+    marginTop:8,
+  },
+  titleBtn:{
+    paddingHorizontal:4,
+    paddingVertical:3,
+    color:'white',
+    fontSize:14,
+    fontWeight:'bold',
+    textAlign:'center',
   }
 });
