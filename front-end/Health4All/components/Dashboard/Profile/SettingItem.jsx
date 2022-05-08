@@ -18,7 +18,7 @@ import Message from "../../../assets/icons/Message.svg";
 import ShieldDone from "../../../assets/icons/ShieldDone.svg";
 import Settingicon from "../../../assets/icons/Setting.svg";
 
-export default function SettingItems() {
+export default function SettingItems({navigation}) {
   const [isEnabled, setIsEnabled] = useState(false);
   const toggleSwitch = () => setIsEnabled((previousState) => !previousState);
 
@@ -27,25 +27,29 @@ export default function SettingItems() {
       id: 1,
       icon: <Profile />,
       title: "Personnel Data",
-      to: <Arrow />,
+      navigateTo : ()=> navigation.push('PersonnalData'),
+      to: <Arrow />
     },
     {
       id: 2,
       icon: <Document />,
       title: "Achiement",
-      to: <Arrow />,
+      navigateTo : ()=> navigation.push('Achirment'),
+      to: <Arrow />      
     },
     {
       id: 3,
       icon: <Graph />,
       title: "Activity History",
-      to: <Arrow />,
+      navigateTo : ()=> navigation.push('ActivityHistoty'),
+      to: <Arrow />
     },
     {
       id: 4,
       icon: <Chart />,
       title: "Confidentiality",
-      to: <Arrow />,
+      navigateTo : ()=> navigation.push('Confidentiality'),
+      to: <Arrow />      
     },
   ];
 
@@ -54,19 +58,22 @@ export default function SettingItems() {
       id: 1,
       icon: <Message />,
       title: "Contact Us",
-      to: <Arrow />,
-    },
+      navigateTo : ()=> navigation.push('ContactUs'),
+      to: <Arrow />          
+      },
     {
       id: 2,
       icon: <ShieldDone />,
       title: "Privacy Policy",
-      to: <Arrow />,
+      navigateTo : ()=> navigation.push('PrivacyPolicy'),
+      to:  <Arrow />
     },
     {
       id: 3,
       icon: <Settingicon />,
       title: "Settings",
-      to: <Arrow />,
+      navigateTo : ()=> navigation.push('Settings'),
+      to: <Arrow />      
     },
   ];
 

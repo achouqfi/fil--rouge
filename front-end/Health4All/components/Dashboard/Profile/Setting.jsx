@@ -10,7 +10,7 @@ export default function Setting({ item }) {
       <View style={styles.title}>
         <Text style={{ fontSize:14 }}>{item.title}</Text>
       </View>
-      <TouchableOpacity style={styles.NavigationTo}>{item.to}</TouchableOpacity>
+      <TouchableOpacity onPress={ item.navigateTo } style={styles.NavigationTo}>{item.to}</TouchableOpacity>
     </View>
   )
 }

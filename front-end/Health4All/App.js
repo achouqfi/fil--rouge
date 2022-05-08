@@ -1,15 +1,6 @@
-import { createStackNavigator } from "@react-navigation/stack";
-import { NavigationContainer } from '@react-navigation/native';
-import Onboarding from './screens/Onbarding/Onboarding'
-import CreateAccount from './screens/Auth/AccountCreation'
-import LoginIn from './screens/Auth/LoginIn'
-import CreateAccount1 from './screens/Auth/AccountCreation1'
-import StartedHome from './screens/Auth/StartedHome'
-import Notification from './screens/Dashboard/Notification/Notification'
-import Buttomnavigation from './navigation/ButtomNavigation';
-import HomeMealPlanner from './screens/Dashboard/MealPlanner/HomeMealPlanner';
-
-const Stack = createStackNavigator()
+import Navigator from './navigation/Navigator'
+import { View } from 'react-native'
+import React from 'react'
 
 export default function App() {
   // const [loaded] = useFonts({
@@ -24,17 +15,6 @@ export default function App() {
   // }
 
   return (
-    <NavigationContainer>
-        <Stack.Navigator>
-          <Stack.Screen name="StartedHome" component={StartedHome} options={{ headerShown :false }}  />
-          <Stack.Screen name="Notification" component={Notification} options={{ headerShown :false }}  />
-          <Stack.Screen name="Dashboard" component={Buttomnavigation} options={{ headerShown :false }}  />
-          <Stack.Screen name="CreateAccount" component={CreateAccount} options={{ headerShown :false }}  />
-          <Stack.Screen name="LoginIn" component={LoginIn} options={{ headerShown :false }} />
-          <Stack.Screen name="CreateAccount1" component={CreateAccount1} options={{ headerShown :false }}  />
-          <Stack.Screen name="MealPlanner" component={HomeMealPlanner} options={{ headerShown :false }}  />
-          <Stack.Screen name="Onboarding" component={Onboarding} options={{ headerShown :false }} />
-        </Stack.Navigator>
-    </NavigationContainer>
+    <Navigator />
   );
 }

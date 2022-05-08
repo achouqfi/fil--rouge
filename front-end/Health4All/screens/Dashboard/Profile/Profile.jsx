@@ -1,5 +1,4 @@
 import React, {useEffect, useRef} from 'react'
-import { NavigationContainer } from '@react-navigation/native';
 import {
     StyleSheet,
     View,
@@ -19,7 +18,6 @@ import HeaderProfile from '../../../components/Dashboard/Profile/HeaderProfile'
 import Options from '../../../components/Dashboard/Profile/SettingItem'
 
 var width = Dimensions.get('window').width;
-
 export default function Profile({navigation}) {
   function back(){
     navigation.goBack();
@@ -29,7 +27,7 @@ export default function Profile({navigation}) {
     <View style={styles.container}>
         <Header back={back} HeaderTitle={'Profile'} />
         <HeaderProfile />
-        <Options />
+        <Options navigation={navigation} />
     </View>
   )
 }
