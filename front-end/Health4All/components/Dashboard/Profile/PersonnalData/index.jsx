@@ -18,6 +18,7 @@ import { Formik } from "formik";
 import HeaderText from "../../../Auth/Header";
 import Btn from '../../Home/BtnHome'
 import { LinearGradient } from 'expo-linear-gradient';
+import ImageUpload from "./ImageUpload";
 
 const { Profile, Lock } = Icons;
 export default function index({ navigation }) {
@@ -59,11 +60,13 @@ export default function index({ navigation }) {
           lastName: "",
           phone: "",
           photo: "",
+          birthday: "",
         }}
         onSubmit={(values) => console.log(values)}
       >
         {({ handleChange, handleBlur, handleSubmit, values }) => (
           <ScrollView>
+            <ImageUpload />
             <View style={styles.InputContainer}>
               <TextInput
                 onChangeText={handleChange("email")}
@@ -75,6 +78,9 @@ export default function index({ navigation }) {
             </View>
             <View style={styles.InputContainer}>
               <TextInput
+                onChangeText={handleChange("firstName")}
+                onBlur={handleBlur("firstName")}
+                value={values.firstName}
                 placeholder="First Name"
                 style={{
                   marginLeft: 10,
@@ -84,6 +90,9 @@ export default function index({ navigation }) {
             </View>
             <View style={styles.InputContainer1} >
               <TextInput
+                onChangeText={handleChange("birthday")}
+                onBlur={handleBlur("birthday")}
+                value={values.birthday== "" ? text : values.birthday}
                 placeholder={text}
                 style={{ marginLeft: 10, width: 300 }}
               />
@@ -100,13 +109,18 @@ export default function index({ navigation }) {
             </View>
             <View style={styles.InputContainer}>
               <TextInput
-                placeholder="Email"
+                onChangeText={handleChange("phone")}
+                onBlur={handleBlur("phone")}
+                value={values.phone}
+                placeholder="phone"
                 style={{ marginLeft: 10, width: 300 }}
               />
             </View>
             <View style={styles.InputContainer} >
               <TextInput
-                placeholder="Password"
+                onChangeText={handleChange("phone")}
+                onBlur={handleBlur("phone")}
+                value={values.phone}
                 style={{ marginLeft: 10, width: 300 }}
                 secureTextEntry={true}
               />
@@ -118,14 +132,9 @@ export default function index({ navigation }) {
                 secureTextEntry={true}
               />
             </View>
-            <View style={styles.InputContainer}>
-              <TextInput
-                placeholder="Password"
-                style={{ marginLeft: 10, width: 300 }}
-                secureTextEntry={true}
-              />
+            <View style={styles.Btn}>
+              <Btn btnTitle={"Save"} onPress={handleSubmit} color1={"#92A3FD"} color2={'#9DCEFF'}  />
             </View>
-            <Button onPress={handleSubmit} title="Submit" />
           </ScrollView>
         )}
       </Formik>
@@ -186,5 +195,12 @@ const styles = StyleSheet.create({
     fontSize:14,
     fontWeight:'bold',
     textAlign:'center',
+  },
+  Btn:{
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "flex-end",
+    marginTop: 20,
+    marginRight: 30,
   }
 });
