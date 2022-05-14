@@ -33,8 +33,8 @@ export default function SettingItems({navigation}) {
     {
       id: 2,
       icon: <Document />,
-      title: "Achiement",
-      navigateTo : ()=> navigation.push('Achirment'),
+      title: "Calendar",
+      navigateTo : ()=> navigation.push('Calendar'),
       to: <Arrow />      
     },
     {
@@ -103,7 +103,7 @@ export default function SettingItems({navigation}) {
         <FlatList
           data={list1}
           renderItem={Setting}
-          keyExtractor={(item) => "item.id"}
+          keyExtractor={(item) => `${item.id}`}
         />
       </View>
       <View style={styles.ProfileParamsContainer}>
@@ -111,7 +111,7 @@ export default function SettingItems({navigation}) {
         <FlatList
           data={list3}
           renderItem={Setting}
-          keyExtractor={(item) => "item.id"}
+          keyExtractor={(item) => `${item.id}`}
         />
       </View>
       <View style={styles.ProfileParamsContainer}>
@@ -119,7 +119,7 @@ export default function SettingItems({navigation}) {
         <FlatList
           data={list2}
           renderItem={Setting}
-          keyExtractor={(item) => "item.id"}
+          keyExtractor={(item) => `${item.id}`}
         />
       </View>
     </View>

@@ -8,11 +8,11 @@ import StartedHome from '../screens/Auth/StartedHome'
 import Notification from '../screens/Dashboard/Notification/Notification'
 import Buttomnavigation from '../navigation/ButtomNavigation';
 import HomeMealPlanner from '../screens/Dashboard/MealPlanner/HomeMealPlanner';
-import Achirment from '../components/Dashboard/Profile/Achirment/index';
-import ActivityHistoty from '../components/Dashboard/Profile/ActivityHistoty/index';
-import Confidentiality from '../components/Dashboard/Profile/Confidentiality/index';
-import ContactUs from '../components/Dashboard/Profile/ContactUs/index';
-import PersonnalData from '../components/Dashboard/Profile/PersonnalData/index';
+import Calendar from '../components/Dashboard/Profile/Calendar/Index';
+import ActivityHistoty from '../components/Dashboard/Profile/ActivityHistoty/Index';
+import Confidentiality from '../components/Dashboard/Profile/Confidentiality/Index';
+import ContactUs from '../components/Dashboard/Profile/ContactUs/Index';
+import PersonnalData from '../components/Dashboard/Profile/PersonnalData/Index';
 import PrivacyPolicy from '../components/Dashboard/Profile/PrivacyPolicy/index';
 import Settings from '../components/Dashboard/Profile/Settings/index';
 
@@ -22,6 +22,7 @@ export default function Navigator() {
   return (
     <NavigationContainer>
         <Stack.Navigator>
+          <Stack.Screen name="Calendar" component={Calendar} options={{ headerShown :false }} />
           <Stack.Screen name="PersonnalData" component={PersonnalData} options={{ headerShown :false }} />
           <Stack.Screen name="StartedHome" component={StartedHome} options={{ headerShown :false }}  />
           <Stack.Screen name="Notification" component={Notification} options={{ headerShown :false }}  />
@@ -31,7 +32,6 @@ export default function Navigator() {
           <Stack.Screen name="CreateAccount1" component={CreateAccount1} options={{ headerShown :false }}  />
           <Stack.Screen name="MealPlanner" component={HomeMealPlanner} options={{ headerShown :false }}  />
           <Stack.Screen name="Onboarding" component={Onboarding} options={{ headerShown :false }} />
-          <Stack.Screen name="Achirment" component={Achirment} options={{ headerShown :false }} />
           <Stack.Screen name="ActivityHistoty" component={ActivityHistoty} options={{ headerShown :false }} />
           <Stack.Screen name="Confidentiality" component={Confidentiality} options={{ headerShown :false }} />
           <Stack.Screen name="ContactUs" component={ContactUs} options={{ headerShown :false }} />

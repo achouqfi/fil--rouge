@@ -11,6 +11,7 @@ import {
 import Svg, { Path, Circle, G , Filter, Defs ,FeFlood, FeColorMatrix, FeOffset,FeGaussianBlur , FeBlend  } from "react-native-svg"
 import { LinearGradient } from 'expo-linear-gradient';
 
+//buttons
 export default function BtnHome({ color1, color2, btnTitle }) {
   return ( 
     <LinearGradient
@@ -26,6 +27,7 @@ export default function BtnHome({ color1, color2, btnTitle }) {
   )
 }
 
+//style component
 const styles = StyleSheet.create({
     btnViewMore:{
       width:105,

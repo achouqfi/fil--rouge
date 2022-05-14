@@ -19,9 +19,10 @@ import HeaderText from "../../../Auth/Header";
 import Btn from '../../Home/BtnHome'
 import { LinearGradient } from 'expo-linear-gradient';
 import ImageUpload from "./ImageUpload";
+import Btnauth from "../../../Auth/BtnAuth";
 
 const { Profile, Lock } = Icons;
-export default function index({ navigation }) {
+export default function Index({ navigation }) {
   const [date, setDate] = useState(new Date());
   const [mode, setMode] = useState('date');
   const [show, setShow] = useState(false);
@@ -43,8 +44,7 @@ export default function index({ navigation }) {
     setMode(currentMode);
   }
 
-  const [check1, setCheck1] = useState(false);
-  function back() {
+  const back = () => {
     navigation.push("Dashboard");
   }
   
@@ -102,7 +102,7 @@ export default function index({ navigation }) {
                   end={{ x: 1, y: 0.5 }}
                   style={styles.btnViewMore}
                   >
-                    <TouchableOpacity onPress={() => showMode("date")} >
+                    <TouchableOpacity  onPress={() => showMode("date")} >
                         <Text style={styles.titleBtn}>Select</Text>
                     </TouchableOpacity>
               </LinearGradient>
@@ -118,22 +118,23 @@ export default function index({ navigation }) {
             </View>
             <View style={styles.InputContainer} >
               <TextInput
-                onChangeText={handleChange("phone")}
-                onBlur={handleBlur("phone")}
-                value={values.phone}
+                onChangeText={handleChange("password")}
+                onBlur={handleBlur("password")}
+                value={values.password}
+                placeholder="Password"
                 style={{ marginLeft: 10, width: 300 }}
                 secureTextEntry={true}
               />
             </View>
             <View style={styles.InputContainer}>
               <TextInput
-                placeholder="Password"
+                placeholder="Password Confirmation"
                 style={{ marginLeft: 10, width: 300 }}
                 secureTextEntry={true}
               />
             </View>
-            <View style={styles.Btn}>
-              <Btn btnTitle={"Save"} onPress={handleSubmit} color1={"#92A3FD"} color2={'#9DCEFF'}  />
+            <View style={styles.BtnSubmit}>
+              <Btnauth btnTitle={"Save"} onPress={handleSubmit} color1={"#92A3FD"} color2={'#9DCEFF'}  />
             </View>
           </ScrollView>
         )}
@@ -187,6 +188,7 @@ const styles = StyleSheet.create({
     borderRadius:20,
     height:30,
     marginTop:8,
+    marginRight:14,
   },
   titleBtn:{
     paddingHorizontal:4,
@@ -196,11 +198,7 @@ const styles = StyleSheet.create({
     fontWeight:'bold',
     textAlign:'center',
   },
-  Btn:{
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "flex-end",
-    marginTop: 20,
-    marginRight: 30,
+  BtnSubmit:{
+    marginTop: 60,
   }
 });

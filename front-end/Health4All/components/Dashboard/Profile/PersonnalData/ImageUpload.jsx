@@ -20,7 +20,7 @@ export default function ImageUpload() {
   };
 
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', marginBottom: 20}}>
       <TouchableOpacity style={{ backgroundColor:'grey', width: 100, height: 100, borderRadius: 150 }} onPress={pickImage}>
         {image && <Image source={{ uri: image }} style={{ width: 100, height: 100, borderRadius: 150 }} />}
       </TouchableOpacity>
