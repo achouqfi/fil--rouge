@@ -1,99 +1,57 @@
-import React, {useEffect, useState} from 'react'
+import React from 'react';
 import {
-    StyleSheet,
-    View,
-    Text,
-    TouchableOpacity,
-    TextInput,
-    Dimensions ,
-    StatusBar
+  View,
+  Text,
+  TouchableOpacity,
+  SafeAreaView,
+  StyleSheet,
+  StatusBar,
 } from 'react-native';
-import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete"
-import MapView, { Callout, Circle, Marker } from "react-native-maps"
 
+import {
+  WebView
+} from 'react-native-webview'
+
+import html_script from '../../../script/map'
 export default function Search() {
-	const [ pin, setPin ] = React.useState({
-		latitude: 37.78825,
-		longitude: -122.4324
-	})
-	
-	const [ region, setRegion ] = React.useState({
-		latitude: 37.78825,
-		longitude: -122.4324,
-		latitudeDelta: 0.0922,
-		longitudeDelta: 0.0421
-	})
 
     return (
-        <View style={styles.container}>
-           {/* <GooglePlacesAutocomplete
-				placeholder="Search"
-				fetchDetails={true}
-				GooglePlacesSearchQuery={{
-					rankby: "distance"
-				}}
-				onPress={(data, details = null) => {
-					// 'details' is provided when fetchDetails = true
-					console.log(data, details)
-					setRegion({
-						latitude: details.geometry.location.lat,
-						longitude: details.geometry.location.lng,
-						latitudeDelta: 0.0922,
-						longitudeDelta: 0.0421
-					})
-				}}
-				query={{
-					key: "KEY",
-					language: "en",
-					components: "country:us",
-					types: "establishment",
-					radius: 30000,
-					location: `${region.latitude}, ${region.longitude}`
-				}}
-				styles={{
-					container: { flex: 0, position: "absolute", width: "100%", zIndex: 1 },
-					listView: { backgroundColor: "white" }
-				}}
-			/> */}
-			<MapView
-				style={styles.map}
-				initialRegion={{
-					latitude: 37.78825,
-					longitude: -122.4324,
-					latitudeDelta: 0.0922,
-					longitudeDelta: 0.0421
-				}}
-				provider="google"
-			>
-				<Marker coordinate={{ latitude: region.latitude, longitude: region.longitude }} />
-				<Marker
-					coordinate={pin}
-					pinColor="black"
-					draggable={true}
-					onDragStart={(e) => {
-						console.log("Drag start", e.nativeEvent.coordinates)
-					}}
-					onDragEnd={(e) => {
-						setPin({
-							latitude: e.nativeEvent.coordinate.latitude,
-							longitude: e.nativeEvent.coordinate.longitude
-						})
-					}}
-				>
-					<Callout>
-						<Text>I'm here</Text>
-					</Callout>
-				</Marker>
-				<Circle center={pin} radius={1000} />
-			</MapView>
-        </View>
-    )
-}
+      <>
+        <SafeAreaView style={styles.Container}>
+          <WebView source={{html: html_script }} style={styles.Webview} />
+        </SafeAreaView>
+      </>
+    );  
+};
 
 const styles = StyleSheet.create({
-  map: {
-    width: Dimensions.get('window').width,
-    height: Dimensions.get('window').height,
+  Container: {
+    flex:1,
+    // padding: 10,
+    backgroundColor: 'grey'
+  
   },
- 
+  Webview: {
+    flex: 2,
+    
+  },
+  ButtonArea: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    alignItems: 'center'
+  },
+  Button: {
+    width: 80,
+    padding: 10,
+    borderRadius: 10,
+    backgroundColor: 'black',
+    alignItems: 'center'
+  },
+  ButtonText: {
+    color: 'white',
+    fontWeight: 'bold',
+    fontSize: 14,
+  }
 });
+

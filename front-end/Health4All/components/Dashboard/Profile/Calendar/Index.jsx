@@ -17,18 +17,23 @@ import { Calendar } from "react-native-big-calendar";
 const events = [
   {
     title: "all day event",
-    start: "2022-05-11T09:10:00.000Z",
-    end: "2022-05-140T00:02:00.000Z",
+    start: "2022-05-15T09:10:00.000Z",
+    end: "2022-05-150T00:02:00.000Z",
+  },  
+  {
+    title: "all day dance",
+    start: "2022-05-15T09:11:00.000Z",
+    end: "2022-05-150T00:02:00.000Z",
   },
   {
     title: "Coffee break",
-    start: "2022-05-09T00:09:00.000Z",
-    end: "2022-05-09T01:10:00.000Z",
+    start: "2022-05-19T00:09:00.000Z",
+    end: "2022-05-19T01:10:00.000Z",
   },
   {
     title: "Coffee break",
-    start: "2022-05-11T00:09:00.000Z",
-    end: "2022-05-11T02:12:00.000Z",
+    start: "2022-05-15T00:09:00.000Z",
+    end: "2022-05-15T02:12:00.000Z",
   },
   {
     title: "Coffee break",

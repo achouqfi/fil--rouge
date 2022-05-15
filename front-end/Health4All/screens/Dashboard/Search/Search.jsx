@@ -15,13 +15,7 @@ import Svg, { Path,Ellipse } from "react-native-svg"
 import Map from '../../../components/Dashboard/Search/Map'
 
 export default function Search({navigation}) {
-  const [open, setOpen] = useState(false);
-  const [closeStart, setCloseStart] = useState(false);
-  const [closeArrived, setCloseArrived] = useState(false);
-  const [containerSearch, setContainerSearch] = useState(false);
-  const [start, onChangeStart] = useState('');
-  const [arrived, onChangeArrived] = useState('');
-  
+
 
   function back(){
     navigation.goBack();
@@ -30,82 +24,7 @@ export default function Search({navigation}) {
   return (
     <View style={styles.container}>
         <HeaderSearch back={back} HeaderTitle={'Search'}/>
-        {(
-          containerSearch == true ? (
-          <>
-              <View style={styles.SearchContainer}>
-                <View style={styles.start} >
-                  <Svg  style={styles.svg} width="20" height="20" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <Ellipse cx="8.80541" cy="8.80541" rx="7.49047" ry="7.49047" stroke="black" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <Path d="M14.0151 14.4043L16.9518 17.3334" stroke="black" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-                  </Svg>
-                    <TextInput 
-                      placeholder='start'
-                      style={styles.inputSearch}
-                      onChangeText={onChangeStart}
-                      onChange={()=>setCloseStart(true)}
-                      value={start}
-                    />
-                  {(
-                    closeStart === true ? (
-                      <Svg style={styles.svg} onPress={()=>onChangeStart('')} width="20" height="20" viewBox="0 0 11 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <Path d="M1.39467 1.27047L9.56041 9.08667" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        <Path d="M9.50427 1.25515L1.41047 9.07236" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                      </Svg>
-                    ):null
-                  )}
-                </View>
-                <View>
-                <View  style={styles.start} >
-                  <Svg style={styles.svg} width="18" height="20" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <Ellipse cx="8.80541" cy="8.80541" rx="7.49047" ry="7.49047" stroke="black" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <Path d="M14.0151 14.4043L16.9518 17.3334" stroke="black" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-                  </Svg>
-                    <TextInput 
-                      placeholder='arrived'
-                      style={styles.inputSearch}
-                      onChangeText={onChangeArrived}
-                      onChange={()=>setCloseArrived(true)}
-                      value={arrived}
-                    />
-                  {(
-                    closeArrived === true ? (
-                      <Svg onPress={()=>onChangeArrived('')} style={styles.svg} width="20" height="20" viewBox="0 0 11 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <Path d="M1.39467 1.27047L9.56041 9.08667" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        <Path d="M9.50427 1.25515L1.41047 9.07236" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                      </Svg>
-                    ):null
-                  )}
-                </View>
-                </View>
-              </View>
-          </>
-          ):null
-        )}
-
         <Map />
-        
-        <SpeedDial
-          isOpen={open}
-          icon={{ name: 'edit', color: '#fff' }}
-          openIcon={{ name: 'close', color: '#fff' }}
-          onOpen={() => setOpen(!open)}
-          onClose={() => setOpen(!open)}
-        >
-          <SpeedDial.Action
-            icon={{ name: 'search', color: '#fff' }}
-            title="Search"
-            onPress={() =>( 
-              setContainerSearch(true),
-              setOpen(!open)
-            )}
-          />
-          <SpeedDial.Action
-            icon={{ name: 'add', color: '#fff' }}
-            title="Add"
-            onPress={() => setOpen(!open)}
-          />
-        </SpeedDial> 
     </View>
   )
 }

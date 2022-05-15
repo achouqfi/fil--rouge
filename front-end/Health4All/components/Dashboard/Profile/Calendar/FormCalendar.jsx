@@ -42,13 +42,9 @@ export default function FormCalendar() {
             <HeaderText title1={"Let’s complete your profile"} />
             <Formik
                 initialValues={{
-                email: "",
-                password: "",
-                firstName: "",
-                lastName: "",
-                phone: "",
-                photo: "",
-                birthday: "",
+                    title: "",
+                    start: "",
+                    end: "",                
                 }}
                 onSubmit={(values) => console.log(values)}
             >
@@ -58,14 +54,27 @@ export default function FormCalendar() {
                         <TextInput
                             onChangeText={handleChange("firstName")}
                             onBlur={handleBlur("firstName")}
-                            value={values.firstName}
-                            placeholder="First Name"
+                            value={values.title}
+                            placeholder="Title"
                             style={{
                             marginLeft: 10,
                             width: 300,
                             }}
                         />
                     </View>
+                    <View style={styles.InputContainer}>
+                        <TextInput
+                            onChangeText={handleChange("firstName")}
+                            onBlur={handleBlur("firstName")}
+                            value={values.title}
+                            placeholder="Title"
+                            style={{
+                            marginLeft: 10,
+                            width: 300,
+                            }}
+                        />
+                    </View>
+
                     <View style={styles.InputContainer1} >
                     <TextInput
                         onChangeText={handleChange("birthday")}
@@ -85,9 +94,8 @@ export default function FormCalendar() {
                                 </TouchableOpacity>
                         </LinearGradient>
                     </View>
-                    <Text>hello</Text>
                     <View style={styles.BtnSubmit}>
-                        <Btnauth btnTitle={"Saxxve"} onPress={handleSubmit} color1={"#92A3FD"} color2={'#9DCEFF'}  />
+                        <Btnauth btnTitle={"Save"} onPress={handleSubmit} color1={"#92A3FD"} color2={'#9DCEFF'}  />
                     </View>
                 </>
                 )}
