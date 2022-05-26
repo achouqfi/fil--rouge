@@ -10,7 +10,7 @@ import {
     Image,
 } from 'react-native';
 
-const Btnauth = ({btnTitle, to, marginTop}) => {
+const Btnauth = ({btnTitle, to, marginTop,}) => {
     return (
         <TouchableOpacity onPress={to} style={styles.container}>
             <LinearGradient

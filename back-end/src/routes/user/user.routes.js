@@ -1,5 +1,5 @@
-const express = require('express');  //import express
-const router = express.Router();     //importing express router
+const express = require('express');
+const router = express.Router();
 const fs = require('fs');            // file system
 const morgan = require('morgan')     // import morgan
 const {
@@ -18,4 +18,4 @@ router.post('/addUser', addUser); // add user
 router.put('/updateUser/:id', updateUser); // update user
 router.delete('/deleteUser/:id', deleteUser); // delete user
 
-module.exports = router; // export the router
+module.exports = router;

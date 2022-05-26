@@ -30,20 +30,19 @@ const managerRoutes = require('./routes/manager/manager.routes')  //importing pr
 const mealDetail = require('./routes/user/mealDetails.routes')  //importing mealDetails route
 const meals = require('./routes/user/meals.routes')  //importing meals route
 const photos = require('./routes/user/photos.routes')  //importing photos route
-const sleep = require('./routes/user/sleep.routes')  //importing sleep route
-const training = require('./routes/user/training_program.routes')  //importing training route
-const water = require('./routes/user/water.routes')  //importing water route
+const sleep = require(  './routes/user/sleep.routes')  //importing sleep route
+// const training = require('./routes/user/training_program.routes')  //importing training route
+// const water = require('./routes/user/water.routes')  //importing water route
 
 app.use('/api/admin', adminRoutes) // admin routes
 app.use('/api/meals', meals) // meals routes
 app.use('api/mealDetails', mealDetail) // mealDetails routes
 app.use('/api/photos', photos) // photos routes
 app.use('/api/sleep', sleep) // sleep routes
-app.use('/api/training', training) // training routes
-app.use('/api/water', water) // water routes
+// app.use('/api/training', training) // training routes
+// app.use('/api/water', water) // water routes
 app.use('/api/user', userRoutes) // user routes
 app.use('/api/manager', managerRoutes) // manager routes
-
 
 app.listen(process.env.PORT, () => {
     console.log(`up and running at http://localhost:${process.env.PORT}`);

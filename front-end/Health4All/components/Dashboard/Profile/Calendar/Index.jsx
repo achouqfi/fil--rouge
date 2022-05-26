@@ -60,7 +60,6 @@ export default function Index({ navigation }) {
       <Calendar
         events={events}
         height={600}
-        // onPressEvent={(e) => console.log(events)}
         showAdjacentMonths={false}
         activeDate= { Date.now() }
         showTime= {true}

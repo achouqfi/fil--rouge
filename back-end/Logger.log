@@ -9,3 +9,4 @@
 400 POST /api/admin/loginAdmin {"email":"a.chouqfi@gmail.com","password":"aaa"} 12.603 ms
 200 POST /api/admin/loginAdmin {"email":"a.chouqfi@gmail.com","password":"123"} 13.962 ms
 200 POST /api/admin/loginAdmin {"email":"a.chouqfi@gmail.com","password":"123"} 13.639 ms
+200 POST /api/user/addUser {"email":"a@gmail.com","password":"123","firstName":"firstName","lastName":"lastName","phone":"phone","adress":"adress"} 166.726 ms
