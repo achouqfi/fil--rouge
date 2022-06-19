@@ -12,10 +12,14 @@ const {
 } = require('../../controllers/user/user.controller'); // import the controller
 
 router.post('/loginUser', loginUser); // login user
+// router.post('/loginUser', ()=>{
+//     console.log("loginUser");
+// }); // login user
 router.get('/getAllUsers', getAllUsers); // get all users
 router.get('/getUserById/:id', getUserById); // get user by id
 router.post('/addUser', addUser); // add user
 router.put('/updateUser/:id', updateUser); // update user
 router.delete('/deleteUser/:id', deleteUser); // delete user
+
 
 module.exports = router;

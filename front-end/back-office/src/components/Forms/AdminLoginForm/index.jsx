@@ -26,11 +26,10 @@ const AdminLoginForm = () => {
         .then(res=>setCookie('role', res.data.role)),
     {
       onSuccess: () => {
-        console.log("success");
-        navigate("/");
+        navigate("/Home");
       },
       onError: () => {
-        setError("Information inco");
+        setError("Information incorrect");
       },
     }
   );
@@ -48,8 +47,8 @@ const AdminLoginForm = () => {
     >
       {({ errors, touched }) => (
         <Form>
-          <h1 className="font-bold text-gray-300 text-xl">
-            Ministère de la santé Login
+          <h1 className="font-bold text-gray-300 text-xl text-center">
+            Welcome to the back office of Health4All
           </h1>
           {loginMutation.isError && <Error error={error} />}
           <div className="mt-4">

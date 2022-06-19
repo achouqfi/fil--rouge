@@ -1,4 +1,4 @@
-import { Link, Navigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
 import { useCookies } from 'react-cookie';
 
@@ -8,12 +8,13 @@ const Navigation = () => {
     let navigate = useNavigate();
 
     function logout(){
-       console.log("logout");
+        navigate("/");
+        removeCookie('role');
     }
 
     return (
         <>
-            <nav className="px-5 bg-ehe-900 w-[15em] z-10  h-screen fixed justify-between py-5 dark:bg-gray-800 mr-10">
+            <nav className="px-5 bg-ehe-900 w-[15em] z-10  h-screen fixed justify-between py-5 dark:bg-gray-800 w-[15%] mr-10">
                 <div className="flex flex-col flex-wrap justify-between  mx-auto h-full">
                     <div className="flex flex-col mt-4  md:mt-0 md:text-sm md:font-medium">
                         <div className="flex">
@@ -23,7 +24,7 @@ const Navigation = () => {
                             <div className="text-lg font-semibold text-white">{cookies.role}</div>
                         </div>
                         <>
-                            <Link to="/" className={`${LinkStyle}`}>
+                            <Link to="/Home" className={`${LinkStyle}`}>
                                 Home
                             </Link>
                             <Link to="/users" className={`${LinkStyle}`}>

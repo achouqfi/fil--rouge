@@ -7,10 +7,12 @@ import {
     TextInput ,
     SafeAreaView,
     Image,
+    Button,
 } from 'react-native';
 import Icons from '../../constants/icons'
 import Btnauth from './BtnAuth'
 import { Formik } from "formik";
+import { login } from '../../hook/Custom'
 
 const { Profile, Lock } = Icons;
 
@@ -24,7 +26,9 @@ export default function FormCreatAccount({to}) {
                     email: "",
                     password: "",
                 }}
-                onSubmit={(values) => console.log(values)}
+                onSubmit={(values) => {
+                    login(values, "user/loginUser")
+                }}
             >
                 {({ handleChange, handleBlur, handleSubmit, values }) => (
                     <>
@@ -66,9 +70,8 @@ export default function FormCreatAccount({to}) {
                         </TouchableOpacity>
                         <TouchableOpacity style={styles.btnContainer}  >
                             <Btnauth 
-                                // onPress={handleSubmit}
                                 btnTitle={"Login"} 
-                                OnPress={handleSubmit}
+                                to={handleSubmit}
                             />
                         </TouchableOpacity>
                     </>

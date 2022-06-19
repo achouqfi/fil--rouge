@@ -1,19 +1,25 @@
 const express = require('express');  //import express
-const router = express.Router();     //importing express router
+const router = express.Router();  //create a router
 const fs = require('fs');            // file system
 const morgan = require('morgan')     // import morgan
 const {
     getAllMeals,
-    getOneMeal,
-    createOneMeal,
-    updateOneMeal,
-    deleteOneMeal,
+    getMealById,
+    addMeal,
+    updateMeal,
+    deleteMeal,
 } = require('../../controllers/user/meals.controller'); // import the controller
 
-router.get('/getAllMeals', getAllMeals); // get all meals
-router.get('/getOneMeal/:id', getOneMeal); // get one meal
-router.post('/createOneMeal', createOneMeal); // create one meal
-router.put('/updateOneMeal/:id', updateOneMeal); // update one meal
-router.delete('/deleteOneMeal/:id', deleteOneMeal); // delete one meal
+// Get all meals
+router.get('/get', getAllMeals);
+// Get meal by id
+router.get('/:id', getMealById);
+//add new meal
+router.post('/add', addMeal);
+//update meal
+router.put('/:id', updateMeal);
+//delete meal
+router.delete('/:id', deleteMeal);
 
-module.exports = router; // export the router
+// export the router
+module.exports = router;

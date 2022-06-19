@@ -2,32 +2,31 @@ const mongoose = require('mongoose') // import mongoose
 
 // create a schema
 const mealSchema = new mongoose.Schema({
-    mealTitle: {
+    title: {
         type: String,
         required: true
     },
-    calorie: {
+    subject: {
         type: String,
         required: true
     },
-    Protein: {
+    dateStart: {
         type: String,
         required: true
     },
-    carb: {
+    timeStart: {
         type: String,
         required: true
     },
-    date: {
-        type: Date,
+    timeEnd: {
+        type: String,
         required: true
     },
-    mealNumber: {
+    description:{
         type: String,
         required: true
     },
     user: {type:mongoose.Schema.ObjectId, ref: 'user' },
-    mealDetails: {type:mongoose.Schema.ObjectId, ref: 'meals' }
 })
 
 // create a model

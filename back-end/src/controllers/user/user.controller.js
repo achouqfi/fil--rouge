@@ -1,5 +1,6 @@
 const { comparePassword } = require('../../helpers/JwtValidation')  //get the comparePassword function from the helpers folder
 const user = require("../../models/user/user.model")       //import the user model
+const bcrypt = require('bcryptjs')
 
 //login user
 const loginUser = async (req, res) => {
@@ -8,7 +9,7 @@ const loginUser = async (req, res) => {
         if (!email || !password) return res.status(404).json({ message: "Please fill all the fields" })  //if there is no data in the fields
         const existingUser = await user.findOne({ email })  //find the user by email
         if (!existingUser) return res.status(404).json({ message: "User not found"})    //if the email is not in the database
-        comparePassword(password, existingUser, res)   //compare the password
+        comparePassword(password, existingUser)   //compare the password
     } catch (error) {
         res.status(404).json({ message: error.message })    //if there is an error send a response
     }
@@ -22,10 +23,11 @@ const addUser = async (req, res) => {
         //check if the email is already in the database
         const existingUser = await user.findOne({ email })
         if (existingUser) return res.status(404).json({ message: "User already exists"}) //if the email is already in the database
+        const hashedPassword = await bcrypt.hash(password, 10) //hashing password 
         //if the email is not in the database
         const newUser = new user({ //create a new user
             email,
-            password,
+            password: hashedPassword,
             firstName,
             lastName,
             phone,

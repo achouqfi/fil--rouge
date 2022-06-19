@@ -2,8 +2,9 @@ import axios from "axios";
 
 //login
 export const login = async (values, role) => {
-    axios
-        .post(`http://localhost:4000/api/user/loginUser`, values)
+    console.log(values, `http://localhost:4000/api/${role}`);
+    axios 
+        .post(`http://localhost:4000/api/${role}`, values)
         .then(res =>console.log(res.data))
         .catch(err=>console.log(err))
 };
@@ -11,7 +12,7 @@ export const login = async (values, role) => {
 //register
 export const signup = async (values, role) => {
     axios
-        .post(`http://localhost:4000/api/user/addUser`, values)
+        .post(`http://localhost:4000/api/${role}`, values)
         .then(res =>console.log(res.data))
         .catch(err=>console.log(err))
 }
@@ -19,7 +20,7 @@ export const signup = async (values, role) => {
 //get all data
 export const getDataById = async (values, role) => {
     axios
-        .post(`http://localhost:4000/api/user/getUser`, values)
+        .post(`http://localhost:4000/api/${role}`, values)
         .then(res =>console.log(res.data))
         .catch(err=>console.log(err))
 }
@@ -27,7 +28,7 @@ export const getDataById = async (values, role) => {
 //update data
 export const updateData = async (values, role) => {
     axios
-        .post(`http://localhost:4000/api/user/updateUser`, values)
+        .post(`http://localhost:4000/api/${role}`, values)
         .then(res =>console.log(res.data))
         .catch(err=>console.log(err))
 }
@@ -35,7 +36,7 @@ export const updateData = async (values, role) => {
 //delete data by id
 export const deleteData = async (values, role) => {
     axios
-        .post(`http://localhost:4000/api/user/deleteUser`, values)
+        .post(`http://localhost:4000/api/${role}`, values)
         .then(res =>console.log(res.data))
         .catch(err=>console.log(err))
 }
@@ -43,7 +44,7 @@ export const deleteData = async (values, role) => {
 //get all data
 export const getAllData = async (values, role) => {
     axios
-        .get(`http://localhost:4000/api/user/getAllUser`)
+        .get(`http://localhost:4000/api/${role}`)
         .then(res =>console.log(res.data))
         .catch(err=>console.log(err))
 }
