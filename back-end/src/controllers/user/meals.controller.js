@@ -10,6 +10,7 @@ const getAllMeals = async (req, res) => {
                 description: meal.description,
                 user: meal.user,
                 title: meal.title,
+                subject:meal.subject,
                 start: meal.dateStart + "T" + meal.timeStart,
                 end: meal.dateStart + "T" + meal.timeEnd,
             }
@@ -57,18 +58,22 @@ const addMeal = async (req, res) => {
 //update meal
 const updateMeal = async (req, res) => {
     const { id } = req.params
-    const { title, Subject, dateStart, timeStart, timeEnd, description } = req.body
+    const { title, subject, dateStart, timeStart, timeEnd, description } = req.body
+    console.log(title, subject, dateStart, timeStart, timeEnd, description, id);
     try {
-        if (!title || !Subject || !dateStart || !timeStart || !timeEnd || !description ) return res.status(404).json({ message: "Please fill all the fields" })
-        const meal = await meals.findByIdAndUpdate(id, {
-            title,
-            Subject,
-            dateStart,
-            timeStart,
-            timeEnd,
-            description,
-            user
-        })
+        if (!title || !subject || !dateStart || !timeStart || !timeEnd || !description ) return res.status(404).json({ message: "Please fill all the fields" }), console.log("kkll");
+        const meal = await meals.updateOne(
+            {_id: id}, 
+            {$set :{
+                title,
+                subject,
+                dateStart,
+                timeStart,
+                timeEnd,
+                description,
+                user:"628f94a4efcab29f77c69c98" 
+            }}
+        )
         if (!meal) return res.status(404).json({ message: "Meal not found" })
         res.status(200).json({ message: "Meal updated successfully" })
     }
@@ -81,8 +86,8 @@ const updateMeal = async (req, res) => {
 const deleteMeal = async (req, res) => {
     const { id } = req.params
     try {
-        const meal = await meals.findByIdAndDelete(id)
-        if (!meal) return res.status(404).json({ message: "Meal not found" })
+        const mealss = await meals.findByIdAndDelete(id);
+        if (!mealss) return res.status(404).json({ message: "Meal not found" });
         res.status(200).json({ message: "Meal deleted successfully" })
     }
     catch (error) {

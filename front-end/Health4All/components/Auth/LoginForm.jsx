@@ -12,13 +12,20 @@ import {
 import Icons from '../../constants/icons'
 import Btnauth from './BtnAuth'
 import { Formik } from "formik";
-import { login } from '../../hook/Custom'
-
+import axios from 'axios'
 const { Profile, Lock } = Icons;
 
-export default function FormCreatAccount({to}) {
-    const [check1, setCheck1] = useState(false);
-
+export default function FormLoginAccount({navigate}) {
+    const [error , setError] = useState();
+    const login = async (values, role) => {
+        axios 
+            .post(`http://192.168.0.188:8000/api/${role}`, values)
+            .then(res =>{
+                navigate.push('Dashboard');
+            })
+            .catch(err=>console.log(err))
+    };
+    
     return (
         <SafeAreaView  style={styles.container}>
             <Formik
@@ -27,7 +34,8 @@ export default function FormCreatAccount({to}) {
                     password: "",
                 }}
                 onSubmit={(values) => {
-                    login(values, "user/loginUser")
+                    login(values, "user/loginUser");
+                    
                 }}
             >
                 {({ handleChange, handleBlur, handleSubmit, values }) => (

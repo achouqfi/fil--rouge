@@ -1,15 +1,19 @@
 import axios from "axios";
+import { useNavigation } from "@react-navigation/native";
 
 //login
-export const login = async (values, role) => {
-    console.log(values, `http://localhost:4000/api/${role}`);
+export const login = async (values, role,) => {
     axios 
-        .post(`http://localhost:4000/api/${role}`, values)
-        .then(res =>console.log(res.data))
+        .post(`http://192.168.0.188:8000/api/${role}`, values)
+        .then(res =>{
+            const navigation = useNavigation();
+            const goTo = to => navigation.navigate(to);
+            return {goTo};
+        })
         .catch(err=>console.log(err))
 };
 
-//register
+//registerr
 export const signup = async (values, role) => {
     axios
         .post(`http://localhost:4000/api/${role}`, values)

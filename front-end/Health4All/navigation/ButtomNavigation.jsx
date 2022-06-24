@@ -26,6 +26,9 @@ const Buttomnavigation = () => {
             tabBarOptions={{ 
                 showLabel:false
             }}
+            screenOptions={{
+                tabBarHideOnKeyboard: true
+             }}
         >
             <Tab.Screen 
                 name="Home" 

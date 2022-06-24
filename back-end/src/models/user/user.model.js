@@ -22,10 +22,6 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    adress: {
-        type: String,
-        required: true
-    },
 })
 
 // create a model

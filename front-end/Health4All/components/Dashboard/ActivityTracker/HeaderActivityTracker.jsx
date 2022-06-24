@@ -2,105 +2,106 @@ import React, {useEffect, useState} from 'react'
 import {
     StyleSheet,
     View,
-    Text,
     TouchableOpacity,
     Animated,
-    TextInput,
-    Image
+    Image,
+    Text
 } from 'react-native';
-import { Button, Overlay, Icon, Input } from 'react-native-elements';
+import { Modal, Button, Input, Center, NativeBaseProvider } from "native-base";
 import BtnAdd from '../../Auth/BtnAuth'
-export default function HeaderActivityTracker() {
-    const [visible, setVisible] = useState(false);
+import axios from 'axios'
 
-    const toggleOverlay = () => {
-        setVisible(!visible);
-    };
+export default function HeaderActivityTracker() {
+    const [modalVisible, setModalVisible] = React.useState(false);
+    const initialRef = React.useRef(null);
+    const finalRef = React.useRef(null);
+    const [datacalculator, setDatacalculator] = useState({bmi:'', health:'', healthy_bmi_range:''})
+    const [weight, setWeight] = useState();
+    const [height , setHeight] = useState();
+   
+    const search = () => {
+        const options = {
+            method: 'GET',
+            url: 'https://mega-fitness-calculator1.p.rapidapi.com/bmi', 
+            params: {weight: weight, height: height},
+            headers: {
+              'X-RapidAPI-Key': '09bbb585c3msh37ff91f1744d1d9p1a1061jsnf03902caf60d',
+              'X-RapidAPI-Host': 'mega-fitness-calculator1.p.rapidapi.com'
+            }
+        };
+        axios.request(options)
+        .then( response =>{
+            setDatacalculator(response.data.info);
+            setModalVisible(!modalVisible);
+        }).catch(function (error) {
+            console.error(error);
+        });
+    }
+
   return (
-      <View>
+    <NativeBaseProvider>
     <View style={styles.container}> 
         <View style={styles.headerTarget}>
-            <Text style={styles.targerTitle}>Today Target</Text>
-            <TouchableOpacity  onPress={toggleOverlay}>
-                <Text style={[ styles.targerTitle,styles.targerAdd ]}>+</Text>
+            <Text style={styles.targerTitle}>Get Your BIM range</Text>
+            <TouchableOpacity  onPress={() => {
+                setModalVisible(!modalVisible);
+            }}>
+                <Text style={[ styles.targerTitle,styles.targerAdd ]} >+</Text>
             </TouchableOpacity>
         </View>
         <View style={styles.Target}>
             <View style={styles.CardTarget}>
-                <Image 
-                    source={require('../../../assets/images/object.jpg')}
-                    style={styles.img}
-                />
                 <View>
-                    <Text style={styles.title1}>8L</Text>
-                    <Text style={styles.title2}>Water Intake</Text>
+                    <Text style={styles.title1}>bmi :     {datacalculator.bmi}</Text>
                 </View>
             </View>
             <View style={styles.CardTarget}>
-                <Image 
-                    source={require('../../../assets/images/Group.jpg')}
-                    style={styles.img1}
-                />
                 <View>
-                    <Text style={styles.title1}>2400</Text>
-                    <Text style={styles.title2}>Foot Steps</Text>
+                    <Text style={styles.title1}>health : {datacalculator.health}</Text>
+                </View>
+            </View>
+            <View style={styles.CardTarget}>
+                <View>
+                    <Text style={styles.title1}>HBR : {datacalculator.healthy_bmi_range}</Text>
                 </View>
             </View>
         </View>
     </View>
-    <Overlay isVisible={visible} onBackdropPress={toggleOverlay}>
-    <View style={styles.headerModal}>
-        <Text style={styles.textPrimary}>Hello!</Text>
-        <TouchableOpacity onPress={toggleOverlay}>
-            <Text>Close</Text>
-        </TouchableOpacity>
-    </View>
-    <Text style={styles.textSecondary}>
-        Welcome to React Native Elements
-    </Text>
-    <TextInput
-        placeholder='name'
-        errorStyle={{ color: 'red' }}
-        style={styles.input}
-    />
-    <TextInput
-        placeholder='Type of target'
-        errorStyle={{ color: 'red' }}
-        style={styles.input}
-    />
-    <TextInput
-        placeholder='arget'
-        errorStyle={{ color: 'red' }}
-        style={styles.input}
-    />
-    <View style={{ flexDirection:'row' }}>
-        <Button
-            title={'send'}
-            backgroundColor={'#92A3FD'}
-
-            style={{ 
-                marginLeft: 20,
-             }}
-            icon={
-                <Icon
-                    name="send"
-                    type="font-awesome"
-                    color="white"
-                    size={15}
-                    iconStyle={{ marginRight: 10 }}
-                />
-            }
-            onPress={toggleOverlay}
-        />
-    </View>
-  </Overlay>
-  </View>
+         <Modal isOpen={modalVisible} onClose={setModalVisible} initialFocusRef={initialRef} finalFocusRef={finalRef}>
+        <Modal.Content>
+          <Modal.CloseButton />
+          <Modal.Header>Search your BMI </Modal.Header>
+          <Modal.Body>
+            <Input mt={4} 
+                value={height}
+                onChangeText={newText => setHeight(newText)}
+                placeholder="height" />
+            <Input mt={4}
+                 value={weight}
+                 onChangeText={newText => setWeight(newText)}
+                 placeholder="weight" />
+          </Modal.Body>
+          <Modal.Footer>
+            <Button.Group variant="ghost" space={2}>
+              <Button
+                onPress={()=>search()}
+              >Search</Button>
+              <Button onPress={() => {
+              setModalVisible(!modalVisible);
+            }} colorScheme="secondary">
+                Close
+              </Button>
+            </Button.Group>
+          </Modal.Footer>
+        </Modal.Content>
+      </Modal>
+  </NativeBaseProvider>
   )
 }
 
 const styles = StyleSheet.create({
     container: {
-      height:150,
+      height:130,
       borderRadius:28,
       marginVertical:15,
       marginHorizontal:20,
@@ -109,7 +110,7 @@ const styles = StyleSheet.create({
     },
     headerTarget:{
         flexDirection:'row',
-        justifyContent:'space-between'
+        justifyContent:'space-between',
     },
     targerTitle:{
         color:"black",
@@ -133,15 +134,15 @@ const styles = StyleSheet.create({
     },
     CardTarget:{
         backgroundColor:'white',
-        width:'46%',
-        flexDirection:'row',
-        padding:12,
-        borderRadius:15
+        width:'20%',
+        paddingVertical:4,
+        borderRadius:5
     },
     title1:{
-        fontSize:17,
+        fontSize:14,
         fontWeight:'bold',
-        color:'#9DCEFF'
+        color:'black',
+        textAlign:'center'
     },
     img:{
         margin:7

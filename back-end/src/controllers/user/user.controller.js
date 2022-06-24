@@ -9,7 +9,7 @@ const loginUser = async (req, res) => {
         if (!email || !password) return res.status(404).json({ message: "Please fill all the fields" })  //if there is no data in the fields
         const existingUser = await user.findOne({ email })  //find the user by email
         if (!existingUser) return res.status(404).json({ message: "User not found"})    //if the email is not in the database
-        comparePassword(password, existingUser)   //compare the password
+        comparePassword(password, existingUser,res)   //compare the password
     } catch (error) {
         res.status(404).json({ message: error.message })    //if there is an error send a response
     }
@@ -17,12 +17,12 @@ const loginUser = async (req, res) => {
 
 //add user
 const addUser = async (req, res) => {
-    const { email, password, firstName, lastName, phone, adress } = req.body //req.body is the data that we send from the front-end
+    const { email, password, firstName, lastName, phone } = req.body //req.body is the data that we send from the front-end
     try {
-        if (!email || !password || !firstName || !lastName || !phone || !adress) return res.status(404).json({ message: "Please fill all the fields" }) //if there is no data in the fields
+        if (!email || !password || !firstName || !lastName || !phone ) {return res.status(404).json({ message: "Please fill all the fields" })} //if there is no data in the fields
         //check if the email is already in the database
         const existingUser = await user.findOne({ email })
-        if (existingUser) return res.status(404).json({ message: "User already exists"}) //if the email is already in the database
+        if (existingUser) return res.status(404).json({ message: "User already exists"}); //if the email is already in the database
         const hashedPassword = await bcrypt.hash(password, 10) //hashing password 
         //if the email is not in the database
         const newUser = new user({ //create a new user
@@ -31,12 +31,11 @@ const addUser = async (req, res) => {
             firstName,
             lastName,
             phone,
-            adress
         })
         await newUser.save() //save the new user
-        res.status(200).json({ message: "User added successfully"})  //send a response
+        res.status(200).json({ message: "User added successfully"});  //send a response
     } catch (error) {
-        res.status(404).json({ message: error.message }) //if there is an error send a response
+        res.status(404).json({ message: 'somthing in server' }); //if there is an error send a response
     }
 }
 

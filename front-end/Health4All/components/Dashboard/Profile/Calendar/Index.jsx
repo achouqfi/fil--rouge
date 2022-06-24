@@ -34,10 +34,12 @@ export default function Index({ navigation }) {
   const [endTime, setEndTime] = useState("HH:MM");
   const [data , setData] = useState([]);
   const [actionType , setActionType] = useState('add');
+  const [id, setId] = useState();
+  const [event, setEvent] = useState({title:'', subject:'', description:''})
   
   // consom api to get event
   const getEvent = async () => {
-    await axios.get("http://192.168.1.191:8000/api/meals/get")
+    await axios.get("http://192.168.0.188:8000/api/meals/get")
             .then(res=>{
               setData(res.data);
             }) 
@@ -61,7 +63,11 @@ export default function Index({ navigation }) {
       timeStart: time,
       timeEnd: endTime,
     }
-    await axios.post("http://192.168.1.191:8000/api/meals/add", data);
+    if (actionType == "edit") {
+      await axios.put("http://192.168.0.188:8000/api/meals/" + id, data);
+    }else{
+      await axios.post("http://192.168.0.188:8000/api/meals/add", data);
+    }
     getEvent();
     setModalVisible(false);
   };
@@ -87,29 +93,22 @@ export default function Index({ navigation }) {
     setMode(currentMode);
   }
 
-  const deleteEvent = async (id) => {
-    await axios.delete("http://192.http://192.168.1.191:8000/api/meals/delete/" + id);
-    getEvent();
+  const deleteEvent = async () => {
+    await axios.delete("http://192.168.0.188:8000/api/meals/" + id)
+        .then(res=>{
+          getEvent();
+          setModalVisible(false);
+          setActionType('add');
+        }).catch(err=>console.log(err))
   };
 
   const edit = (event) => {
+    setId(event.id)
+    setEvent(event)
     setModalVisible(true);
     setActionType('edit');
   }
 
-  const updateEvent = async (values, id) => {
-    const data = {
-      title: values.title,
-      subject: values.subject,
-      description: values.description,
-      dateStart: text,
-      timeStart: time,
-      timeEnd: endTime,
-    }
-    await axios.put("http://http://192.168.1.191:8000/api/meals/update/" + id, data);
-    getEvent();
-    setModalVisible(false);
-  }
 
   return (
     <NativeBaseProvider style={styles.container}>
@@ -130,12 +129,11 @@ export default function Index({ navigation }) {
           position: 'absolute',
           top: 630,
           left: 310,
-
         }}>
           <Button style={{ width:60, height:60, borderRadius: 50  }} onPress={() => {
-          setModalVisible(!modalVisible);
-          setActionType('add');
-        }}>
+            setModalVisible(!modalVisible);
+            setActionType('add');
+          }}>
             <Text style={{ fontSize:25, color: "white" }}>+</Text>
         </Button>
       </HStack>
@@ -143,11 +141,11 @@ export default function Index({ navigation }) {
         <Modal.Content>
           <Modal.CloseButton />
           <Modal.Header>Add new event</Modal.Header>
-          <Formik
+          <Formik  
                 initialValues={{
-                    title: "",
-                    subject: "",
-                    description: "",
+                    title: event.title,
+                    subject: event.subject,
+                    description: event.description,
                 }}
 
                 onSubmit={(values) => {
@@ -240,10 +238,10 @@ export default function Index({ navigation }) {
                       >
                         Delete
                       </Button>
-                      <Button onPress={() => {
-                          updateEvent();
+                      <Button  onPress={() => {
+                        handleSubmit();
                       }}>
-                        Edit
+                        Update
                       </Button>
 
                     </Button.Group>

@@ -7,7 +7,6 @@ require('dotenv').config();
 const morgane = require('morgan');
 const fs = require('fs');
 // const morgan = require('morgan');
-const req = require('express/lib/request');
 
 app.use(cors())
 app.use(cookieParser())
@@ -45,5 +44,5 @@ app.use('/api/user', userRoutes) // user routes
 app.use('/api/manager', managerRoutes) // manager routes
 
 app.listen(process.env.PORT, () => {
-    console.log(`up and running at http://192.168.1.191:${process.env.PORT}`);
+    console.log(`up and running at http://192.168.0.188:${process.env.PORT}`);
 })

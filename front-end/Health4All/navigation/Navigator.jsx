@@ -22,16 +22,22 @@ export default function Navigator() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen
+      <Stack.Screen
           name="Dashboard"
           component={Buttomnavigation}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="CreateAccount"
+          component={CreateAccount}
           options={{ headerShown: false }}
         />
         <Stack.Screen
           name="Onboarding"
           component={Onboarding}
           options={{ headerShown: false }}
-        />  
+        /> 
+
         <Stack.Screen
           name="LoginIn"
           component={LoginIn}
@@ -53,16 +59,12 @@ export default function Navigator() {
           options={{ headerShown: false }}
         />
 
-        <Stack.Screen
-          name="CreateAccount"
-          component={CreateAccount}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
+
+        {/* <Stack.Screen
           name="CreateAccount1"
           component={CreateAccount1}
           options={{ headerShown: false }}
-        />
+        /> */}
         <Stack.Screen
           name="MealPlanner"
           component={HomeMealPlanner}

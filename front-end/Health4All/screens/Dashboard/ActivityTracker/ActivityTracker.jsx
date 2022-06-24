@@ -23,17 +23,16 @@ export default function ActivityTracker({navigation}) {
         <Header back={back} HeaderTitle={'Activity Tracker'} />
         <HeaderActivityTracker />
         <View>
-          <Text style={styles.ActivityStatusTitle}>Activity Progress</Text>
+          <Text style={styles.ActivityStatusTitle}>Food nutritionist value</Text>
           <ActivityProgress />
         </View>
         <View>
-            <View style={styles.LatestActivityContainer} >
-              <Text style={styles.ActivityStatusTitle}>Latest Activity</Text>
+            {/* <View style={styles.LatestActivityContainer} >
+              <Text style={styles.ActivityStatusTitle}>Nutrition values</Text>
               <TouchableOpacity>
-                <Text style={styles.seeMore}>See more</Text>
               </TouchableOpacity>
-            </View>
-            <LatestActivity />
+            </View> */}
+            {/* <LatestActivity /> */}
         </View>
     </ScrollView>
   )

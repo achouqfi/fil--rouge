@@ -16,25 +16,20 @@ import AuthSocialMedia from '../../components/Auth/AuthSocialMedia'
 import FooterAuth from '../../components/Auth/FooterAuth'
 
 export default function LoginIn({navigation}) {
-
     const CreateAccount = () => {
         navigation.push('CreateAccount');
-    }
-
-    const HomePage = () => {
-      navigation.push('Dashboard');
     }
 
     return (
       <ScrollView  style={styles.container}>
           <Header title1={"Hey there,"}  title2={"Welcome Back"} />
-          <LoginForm to={HomePage} />
+          <LoginForm navigate={navigation} />
           <View style={styles.separatAuth}>
               <View style={styles.separat} />
               <Text style={styles.OrText}>Or</Text>
               <View style={styles.separat} />
           </View>
-          <AuthSocialMedia />
+          {/* <AuthSocialMedia /> */}
           <View style={styles.LoginIn}>
             <Text>Don’t have an account yet?</Text>
             <TouchableOpacity onPress={CreateAccount}>

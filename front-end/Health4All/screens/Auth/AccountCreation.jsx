@@ -5,7 +5,8 @@ import {
     Text,
     TouchableOpacity,
     Animated,
-    SafeAreaView
+    SafeAreaView,
+    ScrollView
 } from 'react-native';
 import Header from '../../components/Auth/Header'
 import FormCreatAccount from '../../components/Auth/FormCreatAccount'
@@ -24,29 +25,29 @@ export default function AccountCreation({navigation}) {
   }
 
   return (
-    <SafeAreaView  style={styles.container}>
+    <ScrollView  style={styles.container}>
         <Header title1={"Hey there,"}  title2={"Create an Account"} />
-        <FormCreatAccount />
-        <Btnauth btnTitle={"Register"} to={completeProfile} />
+        <FormCreatAccount navigate={navigation} />
         <View style={styles.separatAuth}>
             <View style={styles.separat} />
               <Text style={styles.OrText}>Or</Text>
             <View style={styles.separat} />
         </View>
-        <AuthSocialMedia />
         <View style={styles.LoginIn}>
           <Text>Already have an account?</Text>
           <TouchableOpacity onPress={LoginIn}>
             <Text style={styles.login}>Login</Text>
           </TouchableOpacity>
         </View>
-    </SafeAreaView>
+    </ScrollView>
   )
 }
 
 
 const styles = StyleSheet.create({
     container: {
+        paddingTop:40,
+        paddingBottom:50,
         flex: 1,
         backgroundColor:'white'
     },
