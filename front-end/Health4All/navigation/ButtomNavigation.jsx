@@ -110,7 +110,7 @@ const Buttomnavigation = () => {
                                 backgroundColor:'#92A3FD',
                                 borderWidth:4,
                                 borderColor: focused ? '#92A3FD' : 'white',
-                                borderRadius:40,
+                                borderRadius:30,
                                 padding:14,
                                 marginBottom:30
                             }}

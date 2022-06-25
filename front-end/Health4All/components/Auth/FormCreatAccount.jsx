@@ -21,7 +21,7 @@ export default function FormCreatAccount({navigate}) {
 
     const createAccount = (values, role) =>{
         axios 
-        .post(`http://192.168.0.188:8000/api/${role}`, values)
+        .post(`http://localhost:8000/api/${role}`, values)
         .then(res =>{
             console.log(res);
             navigate.push('LoginIn');

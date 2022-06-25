@@ -20,7 +20,7 @@ const Btnauth = ({btnTitle, to, marginTop}) => {
                 style={{ 
                     width:"85%",
                     height:"90%",
-                    borderRadius:30,
+                    borderRadius:'25%',
                  }}>
                 <Text style={styles.title1}>{btnTitle}</Text>
             </LinearGradient>

@@ -6,49 +6,43 @@ import {
     Text,
     TouchableOpacity,
     ScrollView,
-    StatusBar
+    StatusBar,
+    SafeAreaView
 } from 'react-native';
 import LatestActivity from '../../../components/Dashboard/ActivityTracker/LatestActivity'
 import Header from '../../../components/Dashboard/Notification/Header'
 import HeaderActivityTracker from '../../../components/Dashboard/ActivityTracker/HeaderActivityTracker'
 import ActivityProgress from '../../../components/Dashboard/ActivityTracker/ActivityProgress'
+import { Modal, Button, Input, Center, NativeBaseProvider } from "native-base";
 
 export default function ActivityTracker({navigation}) {
-  function back(){
+
+  const back = () => {
     navigation.goBack();
   }
 
   return (
-    <ScrollView style={styles.container}>
-        <Header back={back} HeaderTitle={'Activity Tracker'} />
-        <HeaderActivityTracker />
-        <View>
+    <SafeAreaView style={styles.container}>
+        <NativeBaseProvider>
+          <Header back={back} HeaderTitle={'Activity Tracker'} />
+          <HeaderActivityTracker />
           <Text style={styles.ActivityStatusTitle}>Food nutritionist value</Text>
           <ActivityProgress />
-        </View>
-        <View>
-            {/* <View style={styles.LatestActivityContainer} >
-              <Text style={styles.ActivityStatusTitle}>Nutrition values</Text>
-              <TouchableOpacity>
-              </TouchableOpacity>
-            </View> */}
-            {/* <LatestActivity /> */}
-        </View>
-    </ScrollView>
+        </NativeBaseProvider>
+    </SafeAreaView>
   )
 }
 
 const styles = StyleSheet.create({
     container: {
-      marginTop:StatusBar.currentHeight,
       backgroundColor:'white',
       flex:1
     },
     ActivityStatusTitle:{
-      marginLeft:"8%",
-      marginTop:10,
+      marginLeft:"10%",
       fontSize:18,
-      fontWeight:'bold'
+      fontWeight:'bold',
+      marginVertical:14
     },
     LatestActivityContainer:{
       flexDirection:'row',

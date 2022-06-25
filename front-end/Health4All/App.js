@@ -1,6 +1,7 @@
 import Navigator from './navigation/Navigator'
 import { View } from 'react-native'
 import React from 'react'
+import SSRProvider from 'react-bootstrap/SSRProvider'
 
 export default function App() {
   // const [loaded] = useFonts({
@@ -15,6 +16,8 @@ export default function App() {
   // }
 
   return (
-    <Navigator />
+    <SSRProvider> 
+      <Navigator />
+    </SSRProvider>
   );
 }

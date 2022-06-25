@@ -39,7 +39,7 @@ export default function HeaderActivityTracker() {
     }
 
   return (
-    <NativeBaseProvider>
+    <View>
     <View style={styles.container}> 
         <View style={styles.headerTarget}>
             <Text style={styles.targerTitle}>Get Your BIM range</Text>
@@ -95,13 +95,13 @@ export default function HeaderActivityTracker() {
           </Modal.Footer>
         </Modal.Content>
       </Modal>
-  </NativeBaseProvider>
+  </View>
   )
 }
 
 const styles = StyleSheet.create({
     container: {
-      height:130,
+      //height:130,
       borderRadius:28,
       marginVertical:15,
       marginHorizontal:20,
@@ -134,9 +134,9 @@ const styles = StyleSheet.create({
     },
     CardTarget:{
         backgroundColor:'white',
-        width:'20%',
+        width:'30%',
         paddingVertical:4,
-        borderRadius:5
+        borderRadius:10
     },
     title1:{
         fontSize:14,

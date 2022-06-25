@@ -44,5 +44,5 @@ app.use('/api/user', userRoutes) // user routes
 app.use('/api/manager', managerRoutes) // manager routes
 
 app.listen(process.env.PORT, () => {
-    console.log(`up and running at http://192.168.0.188:${process.env.PORT}`);
+    console.log(`up and running at http://localhost:${process.env.PORT}`);
 })

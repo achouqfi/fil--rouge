@@ -6,7 +6,8 @@ import {
     Animated,
     FlatList,
     StatusBar,
-    ScrollView
+    ScrollView,
+    SafeAreaView
 } from 'react-native';
 import {
   Text,
@@ -23,17 +24,16 @@ export default function ProgressTracker({navigation}) {
   }
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <Header back={back} HeaderTitle={'Progress Tracker'} />
       <Calendar />
-    </View>
+    </SafeAreaView>
   )
 
 }
 
 const styles = StyleSheet.create({
   container: {
-    marginTop:StatusBar.currentHeight,
     backgroundColor:'white',
     flex:1
   },

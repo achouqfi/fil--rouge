@@ -31,7 +31,7 @@ export default function BtnHome({ color1, color2, btnTitle }) {
 const styles = StyleSheet.create({
     btnViewMore:{
       width:105,
-      borderRadius:30
+      borderRadius:15
     },
     titleBtn:{
       paddingHorizontal:18,

@@ -7,7 +7,8 @@ import {
     TouchableOpacity,
     TextInput,
     Dimensions ,
-    StatusBar
+    StatusBar,
+    SafeAreaView
 } from 'react-native';
 import { SpeedDial } from 'react-native-elements';
 import HeaderSearch from '../../../components/Dashboard/Notification/Header'
@@ -22,10 +23,10 @@ export default function Search({navigation}) {
   }
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
         <HeaderSearch back={back} HeaderTitle={'Search'}/>
         <Map />
-    </View>
+    </SafeAreaView>
   )
 }
 

@@ -14,7 +14,6 @@ const comparePassword = async (password, user,res) => {
                 // create a token
                 jwt.sign(data, `${process.env.JWT_SECRET_KEY}`, { expiresIn: '1h' }, (err, token) => {
                     if (err) return res.json({ message: err.message })
-                    console.log(token);
                     return res.status(200).json({
                         token: token,
                         email: user.email,

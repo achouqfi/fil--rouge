@@ -31,7 +31,6 @@ export default function ChartHeaderHome() {
             <Svg width="106" style={styles.svgPrt} height="97" viewBox="0 0 106 97" fill="none" xmlns="http://www.w3.org/2000/svg">
               <G filter="url(#filter0_d_1020_2345)">
                 <Path d="M78 65C80.8829 65 82.3244 65 83.219 63.9979C84.1136 62.9958 83.9626 61.6681 83.6607 59.0127C83.0187 53.3661 81.4712 47.8462 79.0657 42.6688C75.8154 35.6728 71.0771 29.4707 65.1817 24.4956C59.2863 19.5204 52.3759 15.8922 44.9331 13.8642C39.4249 12.3634 33.7234 11.7658 28.0493 12.0822C25.3809 12.231 24.0467 12.3054 23.2093 13.3557C22.3719 14.4061 22.6142 15.827 23.0988 18.6689L30.1488 60.0087C30.5554 62.3932 30.7588 63.5854 31.5969 64.2927C32.435 65 33.6445 65 36.0634 65H78Z" fill="#C58BF2"/>
-                <Text style={styles.prc} >24%</Text>
               </G>
             </Svg>
           </View>
@@ -81,7 +80,8 @@ const styles = StyleSheet.create({
       backgroundColor:"white",
       height:90,
       width:90,
-      borderRadius:50
+      borderRadius:50,
+      marginLeft:'-6%'
     },
     svgPrt:{
       marginLeft:14,

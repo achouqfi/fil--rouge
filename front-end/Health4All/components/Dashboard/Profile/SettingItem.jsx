@@ -155,7 +155,7 @@ const styles = StyleSheet.create({
     marginBottom: 12,
   },
   Switch: {
-    marginLeft: -29,
-    marginTop: -15,
+    marginLeft: -35,
+    marginTop: -4,
   },
 });

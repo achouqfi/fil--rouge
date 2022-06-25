@@ -24,6 +24,7 @@ export default function Index({ navigation }) {
   const [open, setOpen] = useState(false);
   const [visible, setVisible] = useState(false);
   const [modalVisible, setModalVisible] = React.useState(false);
+  const [modalVisible2, setModalVisible2] = React.useState(false);
   const initialRef = React.useRef(null);
   const finalRef = React.useRef(null);
   const [date, setDate] = useState(new Date());
@@ -39,7 +40,7 @@ export default function Index({ navigation }) {
   
   // consom api to get event
   const getEvent = async () => {
-    await axios.get("http://192.168.0.188:8000/api/meals/get")
+    await axios.get("http://localhost:8000/api/meals/get")
             .then(res=>{
               setData(res.data);
             }) 
@@ -63,10 +64,11 @@ export default function Index({ navigation }) {
       timeStart: time,
       timeEnd: endTime,
     }
+
     if (actionType == "edit") {
-      await axios.put("http://192.168.0.188:8000/api/meals/" + id, data);
+      await axios.put("http://localhost:8000/api/meals/" + id, data)
     }else{
-      await axios.post("http://192.168.0.188:8000/api/meals/add", data);
+      await axios.post("http://localhost:8000/api/meals/add", data)
     }
     getEvent();
     setModalVisible(false);
@@ -94,12 +96,12 @@ export default function Index({ navigation }) {
   }
 
   const deleteEvent = async () => {
-    await axios.delete("http://192.168.0.188:8000/api/meals/" + id)
+    await axios.delete("http://localhost:8000/api/meals/" + id)
         .then(res=>{
           getEvent();
           setModalVisible(false);
           setActionType('add');
-        }).catch(err=>console.log(err))
+        })
   };
 
   const edit = (event) => {
@@ -127,8 +129,8 @@ export default function Index({ navigation }) {
         style={{ 
           margin:20,
           position: 'absolute',
-          top: 630,
-          left: 310,
+          top: 540,
+          left: 280,
         }}>
           <Button style={{ width:60, height:60, borderRadius: 50  }} onPress={() => {
             setModalVisible(!modalVisible);
@@ -195,7 +197,7 @@ export default function Index({ navigation }) {
                       w="90%"
                       _focus={{ borderColor: '#9DCEFF' }}
                     />
-                     <TouchableOpacity  onPress={() => showMode("time")} >
+                     <TouchableOpacity  onPress={() => {showMode("time"); setModalVisible2(true)}} >
                         <Time />
                     </TouchableOpacity>
                   </FormControl >
@@ -222,6 +224,7 @@ export default function Index({ navigation }) {
                     />
                   </FormControl>
                 </Modal.Body>
+  
                 <Modal.Footer>
                   {actionType == 'edit' ? 
                     <Button.Group space={2}>
@@ -262,18 +265,28 @@ export default function Index({ navigation }) {
                 </>
               )}
             </Formik>
+            <Modal isOpen={show}>
+                <Modal.Content>
+                  {show && (
+                    <DateTimePicker
+                      testID="dateTimePicker"
+                      value={date}
+                      mode={mode}
+                      is24Hour={true}
+                      display="default"
+                      onChange={onChange}
+                    />
+                  )}
+                <Button onPress={()=>{
+                  setShow(false)
+                }} >
+                    Save
+                </Button>
+                </Modal.Content>
+
+            </Modal>
         </Modal.Content>
       </Modal>
-      {show && (
-        <DateTimePicker
-          testID="dateTimePicker"
-          value={date}
-          mode={mode}
-          is24Hour={true}
-          display="default"
-          onChange={onChange}
-        />
-        )}
     </NativeBaseProvider>
   );
 }

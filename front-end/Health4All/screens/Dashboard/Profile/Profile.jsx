@@ -6,7 +6,8 @@ import {
     Animated,
     FlatList,
     StatusBar,
-    ScrollView
+    ScrollView,
+    SafeAreaView
 } from 'react-native';
 import {
   Text,
@@ -24,11 +25,11 @@ export default function Profile({navigation}) {
   }
   
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
         <Header back={back} HeaderTitle={'Profile'} />
         <HeaderProfile />
         <Options navigation={navigation} />
-    </View>
+    </SafeAreaView>
   )
 }
 

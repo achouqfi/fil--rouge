@@ -9,12 +9,12 @@ import Notification from "../screens/Dashboard/Notification/Notification";
 import Buttomnavigation from "../navigation/ButtomNavigation";
 import HomeMealPlanner from "../screens/Dashboard/MealPlanner/HomeMealPlanner";
 import Calendar from "../components/Dashboard/Profile/Calendar/Index";
-import ActivityHistoty from "../components/Dashboard/Profile/ActivityHistoty/Index";
-import Confidentiality from "../components/Dashboard/Profile/Confidentiality/Index";
-import ContactUs from "../components/Dashboard/Profile/ContactUs/Index";
-import PersonnalData from "../components/Dashboard/Profile/PersonnalData/Index";
+//import ActivityHistoty from "../components/Dashboard/Profile/ActivityHistoty/Index";
+//import Confidentiality from "../components/Dashboard/Profile/Confidentiality/Index";
+//import ContactUs from "../components/Dashboard/Profile/ContactUs/Index";
+//import PersonnalData from "../components/Dashboard/Profile/PersonnalData/Index";
 // import PrivacyPolicy from "../components/Dashboard/Profile/PrivacyPolicy/index";
-import Settings from "../components/Dashboard/Profile/Settings/Index";
+//import Settings from "../components/Dashboard/Profile/Settings/Index";
 
 const Stack = createStackNavigator();
 
@@ -22,6 +22,7 @@ export default function Navigator() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
+ 
       <Stack.Screen
           name="Dashboard"
           component={Buttomnavigation}
@@ -32,7 +33,7 @@ export default function Navigator() {
           component={CreateAccount}
           options={{ headerShown: false }}
         />
-        <Stack.Screen
+         <Stack.Screen
           name="Onboarding"
           component={Onboarding}
           options={{ headerShown: false }}
@@ -41,11 +42,6 @@ export default function Navigator() {
         <Stack.Screen
           name="LoginIn"
           component={LoginIn}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="PersonnalData"
-          component={PersonnalData}
           options={{ headerShown: false }}
         />
         <Stack.Screen
@@ -59,40 +55,9 @@ export default function Navigator() {
           options={{ headerShown: false }}
         />
 
-
-        {/* <Stack.Screen
-          name="CreateAccount1"
-          component={CreateAccount1}
-          options={{ headerShown: false }}
-        /> */}
         <Stack.Screen
           name="MealPlanner"
           component={HomeMealPlanner}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="ActivityHistoty"
-          component={ActivityHistoty}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="Confidentiality"
-          component={Confidentiality}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="ContactUs"
-          component={ContactUs}
-          options={{ headerShown: false }}
-        />
-        {/* <Stack.Screen
-          name="PrivacyPolicy"
-          component={PrivacyPolicy}
-          options={{ headerShown: false }}
-        /> */}
-        <Stack.Screen
-          name="Settings"
-          component={Settings}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>

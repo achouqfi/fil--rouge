@@ -59,7 +59,6 @@ const addMeal = async (req, res) => {
 const updateMeal = async (req, res) => {
     const { id } = req.params
     const { title, subject, dateStart, timeStart, timeEnd, description } = req.body
-    console.log(title, subject, dateStart, timeStart, timeEnd, description, id);
     try {
         if (!title || !subject || !dateStart || !timeStart || !timeEnd || !description ) return res.status(404).json({ message: "Please fill all the fields" }), console.log("kkll");
         const meal = await meals.updateOne(

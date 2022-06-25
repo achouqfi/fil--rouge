@@ -19,7 +19,7 @@ export default function FormLoginAccount({navigate}) {
     const [error , setError] = useState();
     const login = async (values, role) => {
         axios 
-            .post(`http://192.168.0.188:8000/api/${role}`, values)
+            .post(`http://localhost:8000/api/${role}`, values)
             .then(res =>{
                 navigate.push('Dashboard');
             })
@@ -35,7 +35,6 @@ export default function FormLoginAccount({navigate}) {
                 }}
                 onSubmit={(values) => {
                     login(values, "user/loginUser");
-                    
                 }}
             >
                 {({ handleChange, handleBlur, handleSubmit, values }) => (

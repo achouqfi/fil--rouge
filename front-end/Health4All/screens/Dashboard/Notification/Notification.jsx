@@ -17,12 +17,12 @@ export default function Notification({navigation}) {
   }
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
         <HeaderNotification back={back} HeaderTitle={'Notification'} />
         <View>
             <NotificatonList />
         </View>
-    </View>
+    </SafeAreaView>
   )
 }
 
